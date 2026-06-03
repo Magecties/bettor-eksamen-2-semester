@@ -14,7 +14,7 @@ export default function BetsPage() {
   useEffect(() => {
     async function getBets() {
       const query =
-        "/bets?select=*,creator:users(username,name,avatar),stake:stakes(*)&order=created_at.desc";
+        "/bets?select=*,creator:users(username,name,avatar),participants:bet_participants(*,user:users(username,name,avatar)),stake:stakes(*)&order=created_at.desc";
       const response = await fetch(URL + query, { headers });
       const data = await response.json();
       setBets(data);

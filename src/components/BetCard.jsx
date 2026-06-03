@@ -4,12 +4,15 @@ export default function BetCard({ bet }) {
     timeStyle: "short",
   });
 
+  const modstander = bet.participants?.find((p) => p.role === "counterparty");
+  const modstanderNavn = modstander?.user?.name ?? modstander?.user?.username ?? "?";
+
   return (
     <article className="bet-card">
       <div className="bet-card-content">
         <div className="bet-card-top">
           <p className="bet-players">
-            Dig <span>mod</span> {bet.creator?.name ?? bet.creator?.username}
+            Dig <span>mod</span> {modstanderNavn}
           </p>
           <span className="bet-badge">{bet.status}</span>
         </div>
