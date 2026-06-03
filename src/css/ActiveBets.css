@@ -1,0 +1,60 @@
+.active-bets {
+  margin: 24px 20px 0;
+}
+
+.active-bets__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.active-bets__title {
+  font-family: var(--font-display);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  font-weight: var(--h2-weight);
+  letter-spacing: var(--h2-tracking);
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+.active-bets__link {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-400);
+  text-decoration: none;
+}
+
+.active-bets__link:hover {
+  color: var(--neutral-200);
+}
+
+.active-bets__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.active-bets__empty {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
+  border-radius: 16px;
+  text-align: center;
+  color: var(--neutral-400);
+}
+
+.active-bets__cta {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.active-bets__cta:hover {
+  color: var(--color-accent-light);
+}
