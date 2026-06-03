@@ -23,7 +23,7 @@ export default function BetsPage() {
 
   return (
     <>
-      <header>
+      <header className="bets-page-header">
         <h1>Alle bets</h1>
       </header>
       <main>

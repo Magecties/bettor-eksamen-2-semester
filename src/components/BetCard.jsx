@@ -13,9 +13,6 @@ export default function BetCard({ bet }) {
           </p>
           <span className="bet-badge">{bet.status}</span>
         </div>
-        <time className="bet-time" dateTime={bet.created_at}>
-          {formattedDate}
-        </time>
         <h2>{bet.description}</h2>
         {bet.stake && (
           <p className="bet-stake">
@@ -23,7 +20,12 @@ export default function BetCard({ bet }) {
             {bet.stake.description}
           </p>
         )}
-        <p className="bet-status">{bet.status}</p>
+        <p className="bet-meta">
+          <span className="bet-meta-icon">⏱</span>
+          <time className="bet-time" dateTime={bet.created_at}>
+            {formattedDate}
+          </time>
+        </p>
       </div>
     </article>
   );
