@@ -8,9 +8,13 @@ const headers = {
   "Content-Type": "application/json",
 };
 
+const CREATOR_ID = 1; // midlertidig — erstattes når auth er på plads
+
 export default function CreateBetPage() {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
+  const [sendt, setSendt] = useState(false);
+  const [sender, setSender] = useState(false);
 
   const [modstander, setModstander] = useState(null);
   const [beskrivelse, setBeskrivelse] = useState("");
@@ -29,7 +33,7 @@ export default function CreateBetPage() {
     1: "Næste — vælg aftale →",
     2: "Næste — vælg indsats →",
     3: "Gennemse bettet →",
-    4: "Send til modstander →",
+    4: `Send til ${modstander?.name ?? modstander?.username ?? "modstander"} →`,
   };
 
   const canProceed = {
@@ -49,6 +53,52 @@ export default function CreateBetPage() {
     if (step > 1) {
       setStep(step - 1);
     }
+  }
+
+  async function handleSend() {
+    setSender(true);
+
+    // 1. Opret bet
+    const betResponse = await fetch(URL + "/bets", {
+      method: "POST",
+      headers: { ...headers, Prefer: "return=representation" },
+      body: JSON.stringify({
+        creator_id: CREATOR_ID,
+        description: beskrivelse,
+        status: "pending",
+      }),
+    });
+    const betData = await betResponse.json();
+    const betId = betData[0].id;
+
+    // 2. Opret deltagere
+    await fetch(URL + "/bet_participants", {
+      method: "POST",
+      headers,
+      body: JSON.stringify([
+        { bet_id: betId, user_id: CREATOR_ID, role: "creator", acceptance: "accepted" },
+        { bet_id: betId, user_id: modstander.id, role: "counterparty", acceptance: "pending" },
+      ]),
+    });
+
+    // 3. Opret indsats
+    await fetch(URL + "/stakes", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        bet_id: betId,
+        description: indsats.description,
+        emoji: indsats.emoji,
+        kind: indsats.kind,
+      }),
+    });
+
+    setSender(false);
+    setSendt(true);
+  }
+
+  if (sendt) {
+    return <SendtSkærm modstander={modstander} navigate={navigate} />;
   }
 
   return (
@@ -86,10 +136,10 @@ export default function CreateBetPage() {
         )}
         <button
           className="create-bet-cta"
-          onClick={handleNext}
-          disabled={!canProceed[step]}
+          onClick={step === totalSteps ? handleSend : handleNext}
+          disabled={!canProceed[step] || sender}
         >
-          {ctaLabels[step]}
+          {sender ? "Sender..." : ctaLabels[step]}
         </button>
       </div>
     </div>
@@ -326,12 +376,62 @@ function StepIndsats({ indsats, setIndsats }) {
 }
 
 function StepBekraeft({ modstander, beskrivelse, indsats }) {
+  const modstanderNavn = modstander?.name ?? modstander?.username ?? "?";
+
   return (
     <div>
       <h1>Klar til at sende?</h1>
       <p className="create-bet-subtitle">
         Sådan ser bettet ud. Tjek det — så sender vi det til godkendelse.
       </p>
+
+      <div className="bekraeft-kort">
+        <div className="bekraeft-spillere">
+          <div className="bekraeft-avatar">D</div>
+          <span className="bekraeft-mod">mod</span>
+          <div className="bekraeft-avatar">
+            {modstander?.avatar ? (
+              <img src={modstander.avatar} alt={modstanderNavn} />
+            ) : (
+              modstanderNavn[0].toUpperCase()
+            )}
+          </div>
+          <span className="bekraeft-navn">{modstanderNavn}</span>
+        </div>
+
+        <p className="bekraeft-beskrivelse">"{beskrivelse}"</p>
+
+        {indsats && (
+          <div className="bekraeft-indsats">
+            <span>{indsats.emoji}</span>
+            <span>{indsats.description}</span>
+          </div>
+        )}
+
+        <p className="bekraeft-note">
+          <span>○</span> Begge skal sige ja. {modstanderNavn} skal godkende med et tap. Du får besked så snart det sker.
+        </p>
+
+        <p className="bekraeft-status">Status: afventer godkendelse</p>
+      </div>
+    </div>
+  );
+}
+
+function SendtSkærm({ modstander, navigate }) {
+  const navn = modstander?.name ?? modstander?.username ?? "modstanderen";
+
+  return (
+    <div className="sendt-side">
+      <div className="sendt-indhold">
+        <h1>Sendt til<br />{navn}.</h1>
+        <p>
+          {navn} skal godkende med et tap. Før bettet bliver aktivt. Du får besked så snart det sker.
+        </p>
+      </div>
+      <button className="sendt-cta" onClick={() => navigate("/bets")}>
+        Tilbage til feed →
+      </button>
     </div>
   );
 }

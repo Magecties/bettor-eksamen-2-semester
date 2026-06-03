@@ -382,3 +382,134 @@
   color: #0d0c0f;
   font-weight: 600;
 }
+
+/* Trin 4 — Bekræft */
+
+.bekraeft-kort {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bekraeft-spillere {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bekraeft-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.bekraeft-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bekraeft-mod {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.bekraeft-navn {
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+}
+
+.bekraeft-beskrivelse {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 140%;
+  margin: 0;
+}
+
+.bekraeft-indsats {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  width: fit-content;
+}
+
+.bekraeft-note {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 150%;
+  margin: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.bekraeft-status {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+/* Sendt-skærm */
+
+.sendt-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100svh;
+  background: #e8b84b;
+  padding: 60px 28px 40px;
+  box-sizing: border-box;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.sendt-indhold h1 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 105%;
+  letter-spacing: -1.5px;
+  color: #0d0c0f;
+  margin: 0 0 20px;
+}
+
+.sendt-indhold p {
+  font-size: 16px;
+  color: rgba(13, 12, 15, 0.65);
+  line-height: 150%;
+}
+
+.sendt-cta {
+  width: 100%;
+  padding: 18px;
+  background: #0d0c0f;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.sendt-cta:hover {
+  opacity: 0.85;
+}
