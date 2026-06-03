@@ -1,7 +1,7 @@
-import { Routes, Route, NavLink } from 'react-router'
-import HomePage from './pages/HomePage.jsx'
+import { Routes, Route, NavLink } from "react-router";
+import HomePage from "./pages/HomePage.jsx";
 import BetsPage from "./pages/BetsPage";
-import './App.css'
+import "./css/App.css";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/bets" element={<BetsPage />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
