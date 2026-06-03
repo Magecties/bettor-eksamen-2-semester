@@ -1,0 +1,5 @@
+.profile-page {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  min-height: 100svh;
+}
