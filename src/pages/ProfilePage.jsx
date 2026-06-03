@@ -1,11 +1,11 @@
-import ProfileHeader from "../components/ProfilePage/ProfileHeader";
+import { ProfileHeader } from "../components/ProfilePage/ProfileHeader";
+import { StatsRow } from "../components/ProfilePage/StatsRow";
 
 function ProfilePage() {
   return (
     <div>
       <ProfileHeader />
-      <h1>Profile Page</h1>
-      <p>Welcome to your profile!</p>
+      <StatsRow />
     </div>
   );
 }

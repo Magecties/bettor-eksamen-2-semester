@@ -24,12 +24,10 @@ function ProfileDetailPage() {
       const response = await fetch(URL + query, { headers });
       const data = await response.json();
       const user = data[0];
-      if (user) {
-        setName(user.name ?? "");
-        setUsername(user.username ?? "");
-        setAvatar(user.avatar ?? "");
-        setBio(user.bio ?? "");
-      }
+      setName(user.name);
+      setUsername(user.username);
+      setAvatar(user.avatar);
+      setBio(user.bio);
     }
     getUser();
   }, []);
@@ -37,8 +35,7 @@ function ProfileDetailPage() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const query = `/users?id=eq.${CURRENT_USER_ID}`;
-    await fetch(URL + query, {
+    await fetch(URL + `/users?id=eq.${CURRENT_USER_ID}`, {
       method: "PATCH",
       headers,
       body: JSON.stringify({ name, username, avatar, bio }),
@@ -76,7 +73,6 @@ function ProfileDetailPage() {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
           />
         </label>
 
@@ -90,16 +86,10 @@ function ProfileDetailPage() {
         </label>
 
         <div className="profile-detail__actions">
-          <button
-            type="button"
-            className="profile-detail__cancel"
-            onClick={() => navigate("/profile")}
-          >
+          <button type="button" onClick={() => navigate("/profile")}>
             Annuller
           </button>
-          <button type="submit" className="profile-detail__save">
-            Gem
-          </button>
+          <button type="submit">Gem</button>
         </div>
       </form>
     </div>
