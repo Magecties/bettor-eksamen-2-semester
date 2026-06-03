@@ -5,13 +5,13 @@
 }
 
 .profile-detail h1 {
-  font-size: 22px;
   margin-bottom: 20px;
 }
 
 .profile-detail__error {
-  color: #e54848;
-  font-size: 14px;
+  color: var(--color-accent-dark);
+  font-size: var(--body-small-size);
+  line-height: var(--body-small-line);
   margin-bottom: 12px;
 }
 
@@ -25,28 +25,29 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 14px;
+  font-size: var(--body-small-size);
 }
 
 .profile-detail__field span {
-  font-weight: 500;
-  color: var(--text-h, #222);
+  font-weight: 600;
+  color: var(--text-h);
 }
 
 .profile-detail__field input,
 .profile-detail__field textarea {
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid var(--border, #d0d0d0);
-  font-size: 14px;
-  font-family: inherit;
-  background: transparent;
-  color: inherit;
+  border: 1px solid var(--border);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-h);
 }
 
 .profile-detail__field input:focus,
 .profile-detail__field textarea:focus {
-  outline: 2px solid var(--accent, #4a7dff);
+  outline: 2px solid var(--color-accent);
   outline-offset: 1px;
   border-color: transparent;
 }
@@ -62,27 +63,29 @@
 .profile-detail__save {
   padding: 10px 18px;
   border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
   cursor: pointer;
-  border: 1px solid var(--border, #d0d0d0);
+  border: 1px solid var(--border);
   transition: background 0.2s, border-color 0.2s;
 }
 
 .profile-detail__cancel {
   background: transparent;
+  color: var(--text-h);
 }
 
 .profile-detail__cancel:hover {
-  background: var(--accent-bg, #f3f3f3);
+  background: var(--neutral-100);
 }
 
 .profile-detail__save {
-  background: var(--accent, #4a7dff);
-  color: #fff;
-  border-color: var(--accent, #4a7dff);
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent-dark);
 }
 
 .profile-detail__save:hover {
-  opacity: 0.9;
+  background: var(--color-accent-light);
 }
