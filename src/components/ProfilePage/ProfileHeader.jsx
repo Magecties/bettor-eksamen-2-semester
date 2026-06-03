@@ -10,7 +10,7 @@ const headers = {
 
 const CURRENT_USER_ID = 1;
 
-function ProfileHeader() {
+export function ProfileHeader() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
@@ -60,5 +60,3 @@ function ProfileHeader() {
     </header>
   );
 }
-
-export default ProfileHeader;
