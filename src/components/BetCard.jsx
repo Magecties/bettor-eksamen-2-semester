@@ -7,6 +7,12 @@ export default function BetCard({ bet }) {
   return (
     <article className="bet-card">
       <div className="bet-card-content">
+        <div className="bet-card-top">
+          <p className="bet-players">
+            Dig <span>mod</span> {bet.creator?.name ?? bet.creator?.username}
+          </p>
+          <span className="bet-badge">{bet.status}</span>
+        </div>
         <time className="bet-time" dateTime={bet.created_at}>
           {formattedDate}
         </time>
