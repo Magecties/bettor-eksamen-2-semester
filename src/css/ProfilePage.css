@@ -2,4 +2,5 @@
   background: var(--color-primary);
   color: var(--color-secondary);
   min-height: 100svh;
+  padding-bottom: 120px;
 }
