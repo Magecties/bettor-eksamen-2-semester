@@ -1,0 +1,515 @@
+.create-bet-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: #0d0c0f;
+  color: #fff;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.create-bet-header {
+  padding: 20px 0 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.create-bet-close {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.6;
+}
+
+.create-bet-close:hover {
+  opacity: 1;
+}
+
+.create-bet-step-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.create-bet-step-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #e8b84b;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.create-bet-body {
+  flex: 1;
+  padding: 24px 0;
+}
+
+.create-bet-body h1 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 110%;
+  letter-spacing: -1px;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.create-bet-body h1 em {
+  font-style: normal;
+  color: #e8b84b;
+}
+
+.create-bet-subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 28px;
+  line-height: 150%;
+}
+
+.create-bet-footer {
+  padding: 16px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-bet-cta {
+  width: 100%;
+  padding: 18px;
+  background: #e8b84b;
+  color: #0d0c0f;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.create-bet-cta:hover {
+  opacity: 0.9;
+}
+
+.create-bet-back {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 8px 0;
+  text-align: left;
+}
+
+.create-bet-back:hover {
+  color: #fff;
+}
+
+/* Trin 1 — Modstander */
+
+.type-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.type-toggle button {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.type-toggle button.active {
+  background: #fff;
+  color: #0d0c0f;
+  border-color: #fff;
+}
+
+.soeg-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.soeg-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.soeg-input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.squad-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.bruger-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bruger-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.1s;
+  border: 1px solid transparent;
+}
+
+.bruger-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bruger-item.valgt {
+  background: rgba(232, 184, 75, 0.12);
+  border-color: rgba(232, 184, 75, 0.3);
+}
+
+.bruger-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.bruger-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bruger-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bruger-navn {
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+}
+
+.bruger-username {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.bruger-check {
+  color: #e8b84b;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.create-bet-cta:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Trin 2 — Aftalen */
+
+.aftalen-input {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: #fff;
+  font-size: 17px;
+  font-family: inherit;
+  line-height: 150%;
+  resize: none;
+  box-sizing: border-box;
+  outline: none;
+  margin-bottom: 6px;
+}
+
+.aftalen-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.aftalen-input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.aftalen-tæller {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: right;
+  margin: 0 0 24px;
+}
+
+.forslag-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.forslag-btn {
+  width: 100%;
+  text-align: left;
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.forslag-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Trin 3 — Indsats */
+
+.indsats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.indsats-kort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.indsats-kort:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.indsats-kort.valgt {
+  background: rgba(232, 184, 75, 0.12);
+  border-color: rgba(232, 184, 75, 0.4);
+  color: #fff;
+}
+
+.indsats-emoji {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.indsats-navn {
+  line-height: 130%;
+}
+
+.deadline-valg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.deadline-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.deadline-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.deadline-btn.aktiv {
+  background: #fff;
+  border-color: #fff;
+  color: #0d0c0f;
+  font-weight: 600;
+}
+
+/* Trin 4 — Bekræft */
+
+.bekraeft-kort {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bekraeft-spillere {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bekraeft-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.bekraeft-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bekraeft-mod {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.bekraeft-navn {
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+}
+
+.bekraeft-beskrivelse {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 140%;
+  margin: 0;
+}
+
+.bekraeft-indsats {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  width: fit-content;
+}
+
+.bekraeft-note {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 150%;
+  margin: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.bekraeft-status {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+/* Sendt-skærm */
+
+.sendt-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100svh;
+  background: #e8b84b;
+  padding: 60px 28px 40px;
+  box-sizing: border-box;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.sendt-indhold h1 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 105%;
+  letter-spacing: -1.5px;
+  color: #0d0c0f;
+  margin: 0 0 20px;
+}
+
+.sendt-indhold p {
+  font-size: 16px;
+  color: rgba(13, 12, 15, 0.65);
+  line-height: 150%;
+}
+
+.sendt-cta {
+  width: 100%;
+  padding: 18px;
+  background: #0d0c0f;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.sendt-cta:hover {
+  opacity: 0.85;
+}

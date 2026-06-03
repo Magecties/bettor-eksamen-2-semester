@@ -1,3 +1,26 @@
+
+.main-nav {
+  display: flex;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  max-width: 1126px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+
+  a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  a.active {
+    color: var(--text-h);
+  }
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
