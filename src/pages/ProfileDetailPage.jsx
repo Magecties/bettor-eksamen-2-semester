@@ -1,19 +1,49 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import "../css/ProfileDetailPage.css";
+
+const URL = import.meta.env.VITE_SUPABASE_URL;
+const headers = {
+  apikey: import.meta.env.VITE_SUPABASE_APIKEY,
+  "Content-Type": "application/json",
+};
+
+const CURRENT_USER_ID = 1;
 
 function ProfileDetailPage() {
   const navigate = useNavigate();
 
-  const [name, setName] = useState("Mathias Madsen");
-  const [handle, setHandle] = useState("@mathias");
-  const [avatarUrl, setAvatarUrl] = useState(
-    "https://i.pravatar.cc/150?img=12"
-  );
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [avatar, setAvatar] = useState("");
   const [bio, setBio] = useState("");
 
-  function handleSubmit(event) {
+  useEffect(() => {
+    async function getUser() {
+      const query = `/users?id=eq.${CURRENT_USER_ID}&select=name,username,avatar,bio`;
+      const response = await fetch(URL + query, { headers });
+      const data = await response.json();
+      const user = data[0];
+      if (user) {
+        setName(user.name ?? "");
+        setUsername(user.username ?? "");
+        setAvatar(user.avatar ?? "");
+        setBio(user.bio ?? "");
+      }
+    }
+    getUser();
+  }, []);
+
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    const query = `/users?id=eq.${CURRENT_USER_ID}`;
+    await fetch(URL + query, {
+      method: "PATCH",
+      headers,
+      body: JSON.stringify({ name, username, avatar, bio }),
+    });
+
     navigate("/profile");
   }
 
@@ -26,8 +56,8 @@ function ProfileDetailPage() {
           <span>Avatar URL</span>
           <input
             type="url"
-            value={avatarUrl}
-            onChange={(e) => setAvatarUrl(e.target.value)}
+            value={avatar}
+            onChange={(e) => setAvatar(e.target.value)}
           />
         </label>
 
@@ -41,11 +71,12 @@ function ProfileDetailPage() {
         </label>
 
         <label className="profile-detail__field">
-          <span>Handle</span>
+          <span>Brugernavn</span>
           <input
             type="text"
-            value={handle}
-            onChange={(e) => setHandle(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
           />
         </label>
 
