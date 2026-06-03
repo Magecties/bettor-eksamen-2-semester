@@ -309,3 +309,76 @@
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
+
+/* Trin 3 — Indsats */
+
+.indsats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.indsats-kort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.indsats-kort:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.indsats-kort.valgt {
+  background: rgba(232, 184, 75, 0.12);
+  border-color: rgba(232, 184, 75, 0.4);
+  color: #fff;
+}
+
+.indsats-emoji {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.indsats-navn {
+  line-height: 130%;
+}
+
+.deadline-valg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.deadline-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.deadline-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.deadline-btn.aktiv {
+  background: #fff;
+  border-color: #fff;
+  color: #0d0c0f;
+  font-weight: 600;
+}
