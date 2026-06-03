@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import BetCard from "../components/BetCard";
 
 const URL = import.meta.env.VITE_SUPABASE_URL; // .../rest/v1
 const headers = {
@@ -21,17 +22,17 @@ export default function BetsPage() {
   }, []);
 
   return (
-    <main>
-      {bets.map((bet) => (
-        <article key={bet.id}>
-          <h2>{bet.description}</h2>
-          <p>Status: {bet.status}</p>
-          <p>Oprettet af: {bet.creator?.name ?? bet.creator?.username}</p>
-          {bet.stake && (
-            <p>Indsats: {bet.stake.emoji} {bet.stake.description}</p>
-          )}
-        </article>
-      ))}
-    </main>
+    <>
+      <header>
+        <h1>Alle bets</h1>
+      </header>
+      <main>
+        <section className="bets-grid" aria-label="Alle bets">
+          {bets.map((bet) => (
+            <BetCard key={bet.id} bet={bet} />
+          ))}
+        </section>
+      </main>
+    </>
   );
 }
