@@ -1,0 +1,99 @@
+.profile-detail {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  min-height: 100svh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 20px 120px;
+}
+
+.profile-detail h1 {
+  color: var(--color-secondary);
+}
+
+.profile-detail h1 {
+  margin-bottom: 20px;
+}
+
+.profile-detail__error {
+  color: var(--color-accent-dark);
+  font-size: var(--body-small-size);
+  line-height: var(--body-small-line);
+  margin-bottom: 12px;
+}
+
+.profile-detail__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-detail__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: var(--body-small-size);
+}
+
+.profile-detail__field span {
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.profile-detail__field input,
+.profile-detail__field textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-800);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  font-family: var(--font-body);
+  background: var(--neutral-900);
+  color: var(--color-secondary);
+}
+
+.profile-detail__field input:focus,
+.profile-detail__field textarea:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.profile-detail__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.profile-detail__cancel,
+.profile-detail__save {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.profile-detail__cancel {
+  background: transparent;
+  color: var(--color-secondary);
+  border-color: var(--neutral-800);
+}
+
+.profile-detail__cancel:hover {
+  background: var(--neutral-900);
+}
+
+.profile-detail__save {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent-dark);
+}
+
+.profile-detail__save:hover {
+  background: var(--color-accent-light);
+}
