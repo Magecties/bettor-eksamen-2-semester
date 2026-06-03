@@ -249,3 +249,63 @@
   opacity: 0.35;
   cursor: not-allowed;
 }
+
+/* Trin 2 — Aftalen */
+
+.aftalen-input {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: #fff;
+  font-size: 17px;
+  font-family: inherit;
+  line-height: 150%;
+  resize: none;
+  box-sizing: border-box;
+  outline: none;
+  margin-bottom: 6px;
+}
+
+.aftalen-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.aftalen-input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.aftalen-tæller {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: right;
+  margin: 0 0 24px;
+}
+
+.forslag-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.forslag-btn {
+  width: 100%;
+  text-align: left;
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.forslag-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
