@@ -30,14 +30,20 @@ export function BottomNav() {
       </NavLink>
 
       <NavLink to="/venner" className="bottom-nav__item">
-        <span className="bottom-nav__emoji">😊</span>
+        <svg className="bottom-nav__icon" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="9" cy="8" r="4" />
+          <path d="M1 20c0-4 4-6 8-6s8 2 8 6v1H1z" />
+          <circle cx="17" cy="9" r="3" />
+          <path d="M15 14c4 0 8 2 8 5v1h-7v-1c0-1.8-.8-3.4-2.2-4.6.4-.2.8-.3 1.2-.4z" />
+        </svg>
         <span>Venner</span>
       </NavLink>
 
       <NavLink to="/profile" className="bottom-nav__item">
         <svg className="bottom-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" />
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="10" r="3.5" />
+          <path d="M5.5 19c1.2-3 3.8-4.5 6.5-4.5s5.3 1.5 6.5 4.5" />
         </svg>
         <span>Profil</span>
       </NavLink>
