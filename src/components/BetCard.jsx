@@ -11,6 +11,12 @@ export default function BetCard({ bet }) {
           {formattedDate}
         </time>
         <h2>{bet.description}</h2>
+        {bet.stake && (
+          <p className="bet-stake">
+            <span className="bet-stake-emoji">{bet.stake.emoji}</span>
+            {bet.stake.description}
+          </p>
+        )}
         <p className="bet-status">{bet.status}</p>
       </div>
     </article>
