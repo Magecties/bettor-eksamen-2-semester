@@ -115,3 +115,137 @@
 .create-bet-back:hover {
   color: #fff;
 }
+
+/* Trin 1 — Modstander */
+
+.type-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.type-toggle button {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.type-toggle button.active {
+  background: #fff;
+  color: #0d0c0f;
+  border-color: #fff;
+}
+
+.soeg-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.soeg-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.soeg-input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.squad-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.bruger-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bruger-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.1s;
+  border: 1px solid transparent;
+}
+
+.bruger-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bruger-item.valgt {
+  background: rgba(232, 184, 75, 0.12);
+  border-color: rgba(232, 184, 75, 0.3);
+}
+
+.bruger-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.bruger-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bruger-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bruger-navn {
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+}
+
+.bruger-username {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.bruger-check {
+  color: #e8b84b;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.create-bet-cta:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
