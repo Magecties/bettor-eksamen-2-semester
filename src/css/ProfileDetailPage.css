@@ -1,7 +1,14 @@
 .profile-detail {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  min-height: 100svh;
   max-width: 480px;
   margin: 0 auto;
   padding: 24px 20px;
+}
+
+.profile-detail h1 {
+  color: var(--color-secondary);
 }
 
 .profile-detail h1 {
@@ -30,19 +37,19 @@
 
 .profile-detail__field span {
   font-weight: 600;
-  color: var(--text-h);
+  color: var(--color-secondary);
 }
 
 .profile-detail__field input,
 .profile-detail__field textarea {
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--neutral-800);
   font-size: var(--body-size);
   line-height: var(--body-line);
   font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text-h);
+  background: var(--neutral-900);
+  color: var(--color-secondary);
 }
 
 .profile-detail__field input:focus,
@@ -73,11 +80,12 @@
 
 .profile-detail__cancel {
   background: transparent;
-  color: var(--text-h);
+  color: var(--color-secondary);
+  border-color: var(--neutral-800);
 }
 
 .profile-detail__cancel:hover {
-  background: var(--neutral-100);
+  background: var(--neutral-900);
 }
 
 .profile-detail__save {

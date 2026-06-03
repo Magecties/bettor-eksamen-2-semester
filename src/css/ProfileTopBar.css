@@ -1,0 +1,36 @@
+.profile-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-primary);
+  padding: 16px 20px 8px;
+}
+
+.profile-topbar__title {
+  font-family: var(--font-display);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  font-weight: var(--h1-weight);
+  letter-spacing: var(--h1-tracking);
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+.profile-topbar__settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--neutral-800);
+  background: var(--neutral-900);
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.profile-topbar__settings:hover {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
