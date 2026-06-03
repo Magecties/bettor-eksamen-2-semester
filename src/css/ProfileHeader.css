@@ -1,6 +1,6 @@
 .profile-header {
-  background: #000;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-secondary);
   padding: 20px;
 }
 
@@ -15,8 +15,8 @@
   height: 84px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #4a7dff;
-  background: #f4ead5;
+  border: 2px solid var(--color-accent);
+  background: var(--neutral-100);
   flex-shrink: 0;
 }
 
@@ -29,38 +29,42 @@
 }
 
 .profile-header__name {
-  font-size: 26px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.5px;
+  font-family: var(--font-display);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  font-weight: var(--h1-weight);
+  letter-spacing: var(--h1-tracking);
+  color: var(--color-secondary);
 }
 
 .profile-header__handle {
-  font-size: 15px;
-  color: #8a8f98;
+  font-size: var(--body-small-size);
+  line-height: var(--body-small-line);
+  color: var(--neutral-400);
   margin-top: 4px;
 }
 
 .profile-header__edit {
   padding: 10px 22px;
   border-radius: 999px;
-  border: 1px solid #2a2d33;
-  background: #1c1d21;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
+  border: 1px solid var(--neutral-800);
+  background: var(--neutral-900);
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
 }
 
 .profile-header__edit:hover {
-  background: #26272d;
-  border-color: #3a3d44;
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
 }
 
 .profile-header__bio {
   margin: 16px 0 0;
-  font-size: 15px;
-  color: #e6e6e6;
-  line-height: 1.4;
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  color: var(--neutral-200);
 }
