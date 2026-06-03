@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import BetCard from "../components/BetCard";
 
 const URL = import.meta.env.VITE_SUPABASE_URL; // .../rest/v1
@@ -25,6 +26,7 @@ export default function BetsPage() {
     <>
       <header className="bets-page-header">
         <h1>Alle bets</h1>
+        <Link to="/bets/opret" className="create-bet-btn">+ Opret bet</Link>
       </header>
       <main>
         <section className="bets-grid" aria-label="Alle bets">

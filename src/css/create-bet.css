@@ -1,0 +1,117 @@
+.create-bet-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: #0d0c0f;
+  color: #fff;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.create-bet-header {
+  padding: 20px 0 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.create-bet-close {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.6;
+}
+
+.create-bet-close:hover {
+  opacity: 1;
+}
+
+.create-bet-step-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.create-bet-step-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #e8b84b;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.create-bet-body {
+  flex: 1;
+  padding: 24px 0;
+}
+
+.create-bet-body h1 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 110%;
+  letter-spacing: -1px;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.create-bet-body h1 em {
+  font-style: normal;
+  color: #e8b84b;
+}
+
+.create-bet-subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 28px;
+  line-height: 150%;
+}
+
+.create-bet-footer {
+  padding: 16px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-bet-cta {
+  width: 100%;
+  padding: 18px;
+  background: #e8b84b;
+  color: #0d0c0f;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.create-bet-cta:hover {
+  opacity: 0.9;
+}
+
+.create-bet-back {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 8px 0;
+  text-align: left;
+}
+
+.create-bet-back:hover {
+  color: #fff;
+}
