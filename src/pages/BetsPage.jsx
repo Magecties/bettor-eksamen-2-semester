@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../AuthContext";
 import BetCard from "../components/BetCard";
 import "../css/bets-page.css";
 
@@ -8,9 +9,9 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const CREATOR_ID = 1;
-
 export default function BetsPage() {
+  const { profile } = useAuth();
+  const creatorId = profile?.id;
   const [bets, setBets] = useState([]);
   const [soeg, setSoeg] = useState("");
   const [filter, setFilter] = useState("alle");
@@ -29,14 +30,14 @@ export default function BetsPage() {
   }, []);
 
   const dinTurBets = bets.filter((b) => {
-    const deltager = b.participants?.find((p) => p.user_id === CREATOR_ID);
+    const deltager = b.participants?.find((p) => p.user_id === creatorId);
     return deltager?.role === "counterparty" && deltager?.acceptance === "pending";
   });
 
   const aktiveBets = bets.filter((b) => b.status === "active");
 
   const afventerBets = bets.filter((b) => {
-    const deltager = b.participants?.find((p) => p.user_id === CREATOR_ID);
+    const deltager = b.participants?.find((p) => p.user_id === creatorId);
     return deltager?.role === "creator" && b.status === "pending";
   });
 
@@ -108,7 +109,7 @@ export default function BetsPage() {
           <BetCard
             key={bet.id}
             bet={bet}
-            creatorId={CREATOR_ID}
+            creatorId={creatorId}
             onUpdated={getBets}
           />
         ))}

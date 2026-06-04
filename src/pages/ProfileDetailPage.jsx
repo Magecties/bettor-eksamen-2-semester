@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useAuth } from "../AuthContext";
 import "../css/ProfileDetailPage.css";
 
 const URL = import.meta.env.VITE_SUPABASE_URL;
@@ -8,34 +9,24 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const CURRENT_USER_ID = 1;
-
 function ProfileDetailPage() {
+  const { profile } = useAuth();
+  if (!profile) return null;
+  return <ProfileDetailForm profile={profile} />;
+}
+
+function ProfileDetailForm({ profile }) {
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
-  const [avatar, setAvatar] = useState("");
-  const [bio, setBio] = useState("");
-
-  useEffect(() => {
-    async function getUser() {
-      const query = `/users?id=eq.${CURRENT_USER_ID}&select=name,username,avatar,bio`;
-      const response = await fetch(URL + query, { headers });
-      const data = await response.json();
-      const user = data[0];
-      setName(user.name);
-      setUsername(user.username);
-      setAvatar(user.avatar);
-      setBio(user.bio);
-    }
-    getUser();
-  }, []);
+  const [name, setName] = useState(profile.name ?? "");
+  const [username, setUsername] = useState(profile.username ?? "");
+  const [avatar, setAvatar] = useState(profile.avatar ?? "");
+  const [bio, setBio] = useState(profile.bio ?? "");
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    await fetch(URL + `/users?id=eq.${CURRENT_USER_ID}`, {
+    await fetch(URL + `/users?id=eq.${profile.id}`, {
       method: "PATCH",
       headers,
       body: JSON.stringify({ name, username, avatar, bio }),

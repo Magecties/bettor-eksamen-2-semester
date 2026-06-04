@@ -1,0 +1,107 @@
+.auth-page {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  min-height: 100svh;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+  box-sizing: border-box;
+}
+
+.auth-page h1 {
+  font-family: var(--font-display);
+  font-size: var(--display-size);
+  line-height: var(--display-line);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  color: var(--color-secondary);
+  margin: 0 0 8px;
+}
+
+.auth-page__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  color: var(--neutral-400);
+  margin: 0 0 32px;
+}
+
+.auth-page__error {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--color-accent-dark);
+  background: var(--color-accent-muted);
+  border: 1px solid var(--color-accent-dark);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 0 0 16px;
+}
+
+.auth-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-page__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-page__field span {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.auth-page__field input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--neutral-800);
+  background: var(--neutral-900);
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  outline: none;
+}
+
+.auth-page__field input:focus {
+  border-color: var(--color-accent);
+}
+
+.auth-page__cta {
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.15s;
+}
+
+.auth-page__cta:hover {
+  background: var(--color-accent-light);
+}
+
+.auth-page__switch {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-400);
+  text-align: center;
+  margin: 24px 0 0;
+}
+
+.auth-page__switch a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-page__switch a:hover {
+  color: var(--color-accent-light);
+}

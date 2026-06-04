@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../../AuthContext";
 import "../../css/BalanceCard.css";
 
 const URL = import.meta.env.VITE_SUPABASE_URL;
@@ -7,26 +8,26 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const CURRENT_USER_ID = 1;
-
 export function BalanceCard() {
+  const { profile } = useAuth();
   const [youOwe, setYouOwe] = useState([]);
   const [owesYou, setOwesYou] = useState([]);
 
   useEffect(() => {
+    if (!profile?.id) return;
     async function getBalance() {
-      const lostQuery = `/bet_participants?user_id=eq.${CURRENT_USER_ID}&is_winner=eq.false&select=bet:bets(stake:stakes(emoji,amount,description))`;
+      const lostQuery = `/bet_participants?user_id=eq.${profile.id}&is_winner=eq.false&select=bet:bets(stake:stakes(emoji,amount,description))`;
       const lostRes = await fetch(URL + lostQuery, { headers });
       const lostData = await lostRes.json();
       setYouOwe(lostData);
 
-      const wonQuery = `/bet_participants?user_id=eq.${CURRENT_USER_ID}&is_winner=eq.true&select=bet:bets(stake:stakes(emoji,amount,description))`;
+      const wonQuery = `/bet_participants?user_id=eq.${profile.id}&is_winner=eq.true&select=bet:bets(stake:stakes(emoji,amount,description))`;
       const wonRes = await fetch(URL + wonQuery, { headers });
       const wonData = await wonRes.json();
       setOwesYou(wonData);
     }
     getBalance();
-  }, []);
+  }, [profile?.id]);
 
   let youOweTotal = 0;
   const youOweEmojis = {};

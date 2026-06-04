@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../../AuthContext";
 import "../../css/StatsRow.css";
 
 const URL = import.meta.env.VITE_SUPABASE_URL;
@@ -7,20 +8,20 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const CURRENT_USER_ID = 1;
-
 export function StatsRow() {
+  const { profile } = useAuth();
   const [participants, setParticipants] = useState([]);
 
   useEffect(() => {
+    if (!profile?.id) return;
     async function getStats() {
-      const query = `/bet_participants?user_id=eq.${CURRENT_USER_ID}&is_winner=not.is.null&select=is_winner,bet:bets(created_at)`;
+      const query = `/bet_participants?user_id=eq.${profile.id}&is_winner=not.is.null&select=is_winner,bet:bets(created_at)`;
       const response = await fetch(URL + query, { headers });
       const data = await response.json();
       setParticipants(data);
     }
     getStats();
-  }, []);
+  }, [profile?.id]);
 
   const wins = participants.filter((p) => p.is_winner === true).length;
   const losses = participants.filter((p) => p.is_winner === false).length;
