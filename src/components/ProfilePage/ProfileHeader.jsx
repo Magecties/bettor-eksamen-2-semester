@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import { useAuth } from "../../AuthContext";
+import { BlobLoader } from "../BlobLoader";
 import "../../css/ProfileHeader.css";
 
 export function ProfileHeader() {
@@ -9,7 +10,7 @@ export function ProfileHeader() {
   if (!user) {
     return (
       <header className="profile-header">
-        <p className="profile-header__loading">Indlæser…</p>
+        <BlobLoader />
       </header>
     );
   }
