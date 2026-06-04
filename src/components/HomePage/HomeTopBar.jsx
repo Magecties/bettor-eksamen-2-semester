@@ -1,30 +1,12 @@
-import { useEffect, useState } from "react";
+import { useAuth } from "../../AuthContext";
 import "../../css/HomeTopBar.css";
 
-const URL = import.meta.env.VITE_SUPABASE_URL;
-const headers = {
-  apikey: import.meta.env.VITE_SUPABASE_APIKEY,
-  "Content-Type": "application/json",
-};
-
-const CURRENT_USER_ID = 1;
-
 export function HomeTopBar() {
-  const [name, setName] = useState("");
-
-  useEffect(() => {
-    async function getUser() {
-      const query = `/users?id=eq.${CURRENT_USER_ID}&select=name`;
-      const response = await fetch(URL + query, { headers });
-      const data = await response.json();
-      setName(data[0].name);
-    }
-    getUser();
-  }, []);
+  const { profile } = useAuth();
 
   return (
     <div className="home-topbar">
-      <h1 className="home-topbar__title">Hej {name}</h1>
+      <h1 className="home-topbar__title">Hej {profile?.name ?? ""}</h1>
 
       <div className="home-topbar__actions">
         <button type="button" className="home-topbar__btn" aria-label="Notifikationer">

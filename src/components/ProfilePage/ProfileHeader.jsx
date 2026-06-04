@@ -1,29 +1,10 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { useAuth } from "../../AuthContext";
 import "../../css/ProfileHeader.css";
-
-const URL = import.meta.env.VITE_SUPABASE_URL;
-const headers = {
-  apikey: import.meta.env.VITE_SUPABASE_APIKEY,
-  "Content-Type": "application/json",
-};
-
-const CURRENT_USER_ID = 1;
 
 export function ProfileHeader() {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    async function getUser() {
-      const query = `/users?id=eq.${CURRENT_USER_ID}&select=name,username,avatar,bio`;
-      const response = await fetch(URL + query, { headers });
-      const data = await response.json();
-      console.log("users response:", response.status, data);
-      setUser(data[0]);
-    }
-    getUser();
-  }, []);
+  const { profile: user } = useAuth();
 
   if (!user) {
     return (

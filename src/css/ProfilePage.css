@@ -4,3 +4,25 @@
   min-height: 100svh;
   padding-bottom: 120px;
 }
+
+.profile-page__logout {
+  display: block;
+  margin: 32px 20px 0;
+  padding: 12px 18px;
+  width: calc(100% - 40px);
+  background: transparent;
+  border: 1px solid var(--neutral-800);
+  border-radius: 999px;
+  color: var(--neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.profile-page__logout:hover {
+  background: var(--neutral-900);
+  color: var(--color-secondary);
+  border-color: var(--neutral-700);
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useAuth } from "../AuthContext";
 import StepModstander from "../components/StepModstander";
 import StepAftalen from "../components/StepAftalen";
 import StepIndsats from "../components/StepIndsats";
@@ -13,10 +14,9 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const CREATOR_ID = 1; // midlertidig — erstattes når auth er på plads
-
 export default function CreateBetPage() {
   const navigate = useNavigate();
+  const { profile } = useAuth();
   const [step, setStep] = useState(1);
   const [sendt, setSendt] = useState(false);
   const [sender, setSender] = useState(false);
@@ -67,7 +67,7 @@ export default function CreateBetPage() {
       method: "POST",
       headers: { ...headers, Prefer: "return=representation" },
       body: JSON.stringify({
-        creator_id: CREATOR_ID,
+        creator_id: profile.id,
         description: beskrivelse,
         status: "pending",
       }),
@@ -79,7 +79,7 @@ export default function CreateBetPage() {
       method: "POST",
       headers,
       body: JSON.stringify([
-        { bet_id: betId, user_id: CREATOR_ID, role: "creator", acceptance: "accepted" },
+        { bet_id: betId, user_id: profile.id, role: "creator", acceptance: "accepted" },
         { bet_id: betId, user_id: modstander.id, role: "counterparty", acceptance: "pending" },
       ]),
     });
