@@ -17,6 +17,12 @@
   padding: 48px 0;
 }
 
+.auth-page__logo {
+  width: 140px;
+  height: auto;
+  margin: 0 0 32px;
+}
+
 .auth-page__eyebrow {
   font-family: var(--font-body);
   font-size: var(--label-size);
