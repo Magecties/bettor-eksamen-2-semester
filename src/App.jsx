@@ -1,11 +1,4 @@
-import { useEffect } from "react";
-import {
-  Routes,
-  Route,
-  Navigate,
-  useLocation,
-  useNavigate,
-} from "react-router";
+import { Routes, Route, Navigate, useLocation } from "react-router";
 import { useAuth } from "./AuthContext";
 import HomePage from "./pages/HomePage.jsx";
 import BetsPage from "./pages/BetsPage";
@@ -19,20 +12,39 @@ import SignupPage from "./pages/SignupPage";
 import { BottomNav } from "./components/BottomNav";
 import "./css/App.css";
 
+const publicPaths = ["/login", "/signup", "/onboarding"];
+
 function App() {
   const location = useLocation();
-  const hideNav = location.pathname === "/opret";
+  const { session, loading } = useAuth();
+
+  if (loading) return null;
+
+  const onPublicPage = publicPaths.includes(location.pathname);
+
+  if (!session && !onPublicPage) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (session && (location.pathname === "/login" || location.pathname === "/signup")) {
+    return <Navigate to="/" replace />;
+  }
+
+  const hideNav =
+    location.pathname === "/opret" ||
+    location.pathname === "/bets/opret" ||
+    onPublicPage;
 
   return (
     <>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/bets" element={<BetsPage />} />
         <Route path="/bets/opret" element={<CreateBetPage />} />
         <Route path="/opret" element={<CreateBetPage />} />
-        <Route path="/onboarding" element={<OnboardingPage />} />
         <Route path="/venner" element={<VennerPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profile/edit" element={<ProfileDetailPage />} />
