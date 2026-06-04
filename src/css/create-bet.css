@@ -2,10 +2,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  background: #0d0c0f;
-  color: #fff;
-  max-width: 480px;
-  margin: 0 auto;
+  background: var(--color-primary);
+  color: var(--color-secondary);
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -24,7 +22,7 @@
   right: 0;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--color-secondary);
   font-size: 20px;
   cursor: pointer;
   padding: 4px 8px;
@@ -36,19 +34,22 @@
 }
 
 .create-bet-step-count {
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--neutral-400);
   letter-spacing: 1px;
   margin-bottom: 4px;
 }
 
 .create-bet-step-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #e8b84b;
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
+  color: var(--color-accent);
   margin: 0;
 }
 
@@ -58,24 +59,26 @@
 }
 
 .create-bet-body h1 {
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 110%;
-  letter-spacing: -1px;
-  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--display-size);
+  line-height: var(--display-line);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  color: var(--color-secondary);
   margin: 0 0 12px;
 }
 
 .create-bet-body h1 em {
   font-style: normal;
-  color: #e8b84b;
+  color: var(--color-accent);
 }
 
 .create-bet-subtitle {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  color: var(--neutral-400);
   margin: 0 0 28px;
-  line-height: 150%;
 }
 
 .create-bet-footer {
@@ -88,32 +91,39 @@
 .create-bet-cta {
   width: 100%;
   padding: 18px;
-  background: #e8b84b;
-  color: #0d0c0f;
+  background: var(--color-accent);
+  color: var(--color-primary);
   border: none;
   border-radius: 999px;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: background 0.15s;
 }
 
 .create-bet-cta:hover {
-  opacity: 0.9;
+  background: var(--color-accent-light);
+}
+
+.create-bet-cta:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .create-bet-back {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 15px;
+  color: var(--neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
   cursor: pointer;
   padding: 8px 0;
   text-align: left;
 }
 
 .create-bet-back:hover {
-  color: #fff;
+  color: var(--color-secondary);
 }
 
 /* Trin 1 — Modstander */
@@ -127,48 +137,52 @@
 .type-toggle button {
   padding: 10px 24px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--neutral-800);
   background: transparent;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 15px;
+  color: var(--neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .type-toggle button.active {
-  background: #fff;
-  color: #0d0c0f;
-  border-color: #fff;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border-color: var(--color-secondary);
 }
 
 .soeg-input {
   width: 100%;
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
   border-radius: 12px;
-  color: #fff;
-  font-size: 15px;
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
   margin-bottom: 24px;
   box-sizing: border-box;
   outline: none;
 }
 
 .soeg-input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--neutral-500);
 }
 
 .soeg-input:focus {
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--neutral-700);
 }
 
 .squad-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.3);
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
+  color: var(--neutral-400);
   margin: 0 0 12px;
 }
 
@@ -188,30 +202,31 @@
   padding: 12px 14px;
   border-radius: 14px;
   cursor: pointer;
-  transition: background 0.1s;
+  transition: background 0.1s, border-color 0.1s;
   border: 1px solid transparent;
 }
 
 .bruger-item:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--neutral-900);
 }
 
 .bruger-item.valgt {
-  background: rgba(232, 184, 75, 0.12);
-  border-color: rgba(232, 184, 75, 0.3);
+  background: var(--color-accent-muted);
+  border-color: var(--color-accent-dark);
 }
 
 .bruger-avatar {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 16px;
-  color: #fff;
+  color: var(--color-accent);
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -229,25 +244,22 @@
 }
 
 .bruger-navn {
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 15px;
-  color: #fff;
+  font-size: var(--body-size);
+  color: var(--color-secondary);
 }
 
 .bruger-username {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-500);
 }
 
 .bruger-check {
-  color: #e8b84b;
+  color: var(--color-accent);
   font-size: 18px;
   font-weight: 700;
-}
-
-.create-bet-cta:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
 }
 
 /* Trin 2 — Aftalen */
@@ -255,13 +267,13 @@
 .aftalen-input {
   width: 100%;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
   border-radius: 14px;
-  color: #fff;
-  font-size: 17px;
-  font-family: inherit;
-  line-height: 150%;
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
+  line-height: var(--body-large-line);
   resize: none;
   box-sizing: border-box;
   outline: none;
@@ -269,16 +281,17 @@
 }
 
 .aftalen-input::placeholder {
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--neutral-500);
 }
 
 .aftalen-input:focus {
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--neutral-700);
 }
 
 .aftalen-tæller {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.25);
+  font-family: var(--font-body);
+  font-size: var(--caption-size);
+  color: var(--neutral-500);
   text-align: right;
   margin: 0 0 24px;
 }
@@ -296,18 +309,19 @@
   width: 100%;
   text-align: left;
   padding: 13px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
   border-radius: 12px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
+  color: var(--neutral-200);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
 
 .forslag-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--neutral-800);
+  color: var(--color-secondary);
 }
 
 /* Trin 3 — Indsats */
@@ -323,25 +337,26 @@
   align-items: center;
   gap: 10px;
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
   border-radius: 14px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
+  color: var(--neutral-200);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 500;
   cursor: pointer;
   text-align: left;
-  transition: all 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 
 .indsats-kort:hover {
-  background: rgba(255, 255, 255, 0.09);
+  background: var(--neutral-800);
 }
 
 .indsats-kort.valgt {
-  background: rgba(232, 184, 75, 0.12);
-  border-color: rgba(232, 184, 75, 0.4);
-  color: #fff;
+  background: var(--color-accent-muted);
+  border-color: var(--color-accent-dark);
+  color: var(--color-secondary);
 }
 
 .indsats-emoji {
@@ -362,32 +377,33 @@
 .deadline-btn {
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--neutral-800);
   background: transparent;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 14px;
+  color: var(--neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .deadline-btn:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
+  border-color: var(--neutral-700);
+  color: var(--color-secondary);
 }
 
 .deadline-btn.aktiv {
-  background: #fff;
-  border-color: #fff;
-  color: #0d0c0f;
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-primary);
   font-weight: 600;
 }
 
 /* Trin 4 — Bekræft */
 
 .bekraeft-kort {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
   border-radius: 20px;
   padding: 20px;
   display: flex;
@@ -405,13 +421,14 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
-  color: #fff;
+  color: var(--color-accent);
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -423,20 +440,23 @@
 }
 
 .bekraeft-mod {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-400);
 }
 
 .bekraeft-navn {
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 15px;
-  color: #fff;
+  font-size: var(--body-size);
+  color: var(--color-secondary);
 }
 
 .bekraeft-beskrivelse {
-  font-size: 17px;
+  font-family: var(--font-display);
+  font-size: var(--body-large-size);
   font-weight: 600;
-  color: #fff;
+  color: var(--color-secondary);
   line-height: 140%;
   margin: 0;
 }
@@ -447,24 +467,27 @@
   gap: 8px;
   padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--neutral-800);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-200);
   width: fit-content;
 }
 
 .bekraeft-note {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
-  line-height: 150%;
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-400);
+  line-height: var(--body-small-line);
   margin: 0;
   display: flex;
   gap: 8px;
 }
 
 .bekraeft-status {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.3);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-500);
   margin: 0;
 }
 
@@ -475,41 +498,42 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100svh;
-  background: #e8b84b;
+  background: var(--color-accent);
   padding: 60px 28px 40px;
   box-sizing: border-box;
-  max-width: 480px;
-  margin: 0 auto;
 }
 
 .sendt-indhold h1 {
+  font-family: var(--font-display);
   font-size: 48px;
   font-weight: 900;
   line-height: 105%;
   letter-spacing: -1.5px;
-  color: #0d0c0f;
+  color: var(--color-primary);
   margin: 0 0 20px;
 }
 
 .sendt-indhold p {
-  font-size: 16px;
-  color: rgba(13, 12, 15, 0.65);
-  line-height: 150%;
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
+  color: var(--neutral-800);
+  line-height: var(--body-large-line);
 }
 
 .sendt-cta {
   width: 100%;
   padding: 18px;
-  background: #0d0c0f;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-secondary);
   border: none;
   border-radius: 999px;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: background 0.15s;
 }
 
 .sendt-cta:hover {
-  opacity: 0.85;
+  background: var(--neutral-900);
 }

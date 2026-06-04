@@ -1,51 +1,31 @@
 .bets-page {
-  background: #0d0c0f;
+  background: var(--color-primary);
+  color: var(--color-secondary);
   min-height: 100svh;
-  color: #fff;
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 0 16px 32px;
-  box-sizing: border-box;
+  padding: 0 20px 120px;
 }
 
 /* Header */
 
 .bets-page-header {
-  padding: 24px 0 16px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  padding: 16px 0 12px;
 }
 
 .bets-page-header h1 {
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin: 0 0 2px;
-  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  font-weight: var(--h1-weight);
+  letter-spacing: var(--h1-tracking);
+  color: var(--color-secondary);
+  margin: 0 0 4px;
 }
 
 .bets-page-header p {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-400);
   margin: 0;
-}
-
-.create-bet-btn {
-  display: inline-block;
-  padding: 10px 18px;
-  background: #e8b84b;
-  color: #0d0c0f;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: opacity 0.15s;
-}
-
-.create-bet-btn:hover {
-  opacity: 0.85;
 }
 
 /* Søgefelt */
@@ -54,8 +34,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
   border-radius: 12px;
   padding: 12px 14px;
   margin-bottom: 14px;
@@ -65,17 +45,18 @@
   background: none;
   border: none;
   outline: none;
-  color: #fff;
-  font-size: 15px;
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
   width: 100%;
 }
 
 .bets-soeg input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--neutral-500);
 }
 
 .bets-soeg-ikon {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--neutral-500);
   font-size: 16px;
 }
 
@@ -90,19 +71,20 @@
 .bets-tab {
   padding: 8px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--neutral-800);
   background: transparent;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 14px;
+  color: var(--neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .bets-tab.aktiv {
-  background: #fff;
-  border-color: #fff;
-  color: #0d0c0f;
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -127,35 +109,38 @@
   gap: 5px;
   padding: 7px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--neutral-800);
   background: transparent;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 13px;
+  color: var(--neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .filter-pill.aktiv {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #fff;
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+  color: var(--color-secondary);
 }
 
 .filter-pill-antal {
-  font-size: 12px;
+  font-size: var(--caption-size);
   opacity: 0.7;
 }
 
 /* Sektion-header */
 
 .bets-sektion-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.3);
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
+  color: var(--neutral-400);
   margin: 0 0 12px;
 }
 
@@ -170,15 +155,15 @@
 /* Bet-kort */
 
 .bet-card {
-  background: #1a1820;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 18px;
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
+  border-radius: 16px;
+  padding: 16px;
   text-align: left;
 }
 
 .bet-card.din-tur {
-  border-color: rgba(232, 184, 75, 0.35);
+  border-color: var(--color-accent-dark);
 }
 
 .bet-card-top {
@@ -196,16 +181,16 @@
 }
 
 .bet-avatar {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 13px;
-  color: #fff;
-  border: 2px solid #1a1820;
+  font-size: 14px;
+  border: 2px solid var(--neutral-900);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -221,30 +206,35 @@
 }
 
 .bet-avatar-dig {
-  background: #5c4fd6;
+  background: var(--color-accent);
+  color: var(--color-primary);
 }
 
 .bet-avatar-mod {
-  background: #2d9e6b;
+  background: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .bet-players {
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 600;
-  color: #fff;
+  color: var(--color-secondary);
   flex: 1;
+  margin: 0;
+}
 
-  span {
-    color: rgba(255, 255, 255, 0.4);
-    font-weight: 400;
-    margin: 0 3px;
-  }
+.bet-players span {
+  color: var(--neutral-400);
+  font-weight: 400;
+  margin: 0 4px;
 }
 
 .bet-badge {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-family: var(--font-body);
+  font-size: var(--caption-size);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   padding: 5px 10px;
   border-radius: 999px;
@@ -252,26 +242,27 @@
 }
 
 .bet-badge.din-tur {
-  background: #e8b84b;
-  color: #0d0c0f;
+  background: var(--color-accent);
+  color: var(--color-primary);
 }
 
 .bet-badge.afventer {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.5);
+  background: var(--neutral-800);
+  color: var(--neutral-400);
 }
 
 .bet-badge.aktiv {
-  background: rgba(45, 158, 107, 0.2);
-  color: #2d9e6b;
+  background: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .bet-card h2 {
-  font-size: 18px;
+  font-family: var(--font-display);
+  font-size: var(--h3-size);
+  line-height: var(--h3-line);
   font-weight: 700;
-  line-height: 130%;
   margin: 0 0 14px;
-  color: #fff;
+  color: var(--color-secondary);
 }
 
 .bet-stake {
@@ -280,24 +271,26 @@
   gap: 8px;
   padding: 7px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
+  border: 1px solid var(--neutral-800);
+  background: var(--color-primary);
+  color: var(--neutral-200);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 500;
   margin-bottom: 12px;
 }
 
 .bet-stake-emoji {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .bet-meta {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-500);
   margin-bottom: 4px;
 }
 
@@ -310,8 +303,9 @@
 /* Afventer-tekst */
 
 .bet-afventer-tekst {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.3);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-500);
   margin-top: 12px;
   display: flex;
   align-items: center;
@@ -325,25 +319,26 @@
   gap: 10px;
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid var(--neutral-800);
 }
 
 .bet-afvis-btn {
   flex: 1;
   padding: 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--neutral-800);
   background: transparent;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 15px;
+  color: var(--neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .bet-afvis-btn:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
+  border-color: var(--neutral-700);
+  color: var(--color-secondary);
 }
 
 .bet-godkend-btn {
@@ -351,14 +346,15 @@
   padding: 12px;
   border-radius: 999px;
   border: none;
-  background: #e8b84b;
-  color: #0d0c0f;
-  font-size: 15px;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: background 0.15s;
 }
 
 .bet-godkend-btn:hover {
-  opacity: 0.88;
+  background: var(--color-accent-light);
 }
