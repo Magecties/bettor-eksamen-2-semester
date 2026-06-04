@@ -12,7 +12,19 @@ import "./css/App.css";
 
 function App() {
   const location = useLocation();
-  const hideNav = location.pathname === "/bets/opret";
+  const navigate = useNavigate();
+  const hideNav =
+    location.pathname === "/bets/opret" ||
+    location.pathname === "/opret" ||
+    location.pathname === "/onboarding";
+
+  // send nye besøgende ind i preboarding-flowet første gang
+  useEffect(() => {
+    const harSetOnboarding = localStorage.getItem("bettor_onboarded");
+    if (!harSetOnboarding && location.pathname !== "/onboarding") {
+      navigate("/onboarding");
+    }
+  }, []);
 
   return (
     <>
@@ -20,6 +32,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/bets" element={<BetsPage />} />
         <Route path="/bets/opret" element={<CreateBetPage />} />
+        <Route path="/opret" element={<CreateBetPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/venner" element={<VennerPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/edit" element={<ProfileDetailPage />} />
       </Routes>
 
       {!hideNav && <BottomNav />}
