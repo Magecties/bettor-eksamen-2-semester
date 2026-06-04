@@ -1,4 +1,10 @@
-export default function BetCard({ bet, creatorId }) {
+const URL = import.meta.env.VITE_SUPABASE_URL;
+const headers = {
+  apikey: import.meta.env.VITE_SUPABASE_APIKEY,
+  "Content-Type": "application/json",
+};
+
+export default function BetCard({ bet, creatorId, onUpdated }) {
   const formattedDate = new Date(bet.created_at).toLocaleString("da-DK", {
     dateStyle: "short",
     timeStyle: "short",
@@ -20,6 +26,40 @@ export default function BetCard({ bet, creatorId }) {
   }
 
   const badge = getBadge();
+
+  async function handleGodkend() {
+    await fetch(
+      URL + `/bet_participants?bet_id=eq.${bet.id}&user_id=eq.${creatorId}`,
+      {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify({ acceptance: "accepted" }),
+      }
+    );
+    await fetch(URL + `/bets?id=eq.${bet.id}`, {
+      method: "PATCH",
+      headers,
+      body: JSON.stringify({ status: "active" }),
+    });
+    onUpdated?.();
+  }
+
+  async function handleAfvis() {
+    await fetch(
+      URL + `/bet_participants?bet_id=eq.${bet.id}&user_id=eq.${creatorId}`,
+      {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify({ acceptance: "rejected" }),
+      }
+    );
+    await fetch(URL + `/bets?id=eq.${bet.id}`, {
+      method: "PATCH",
+      headers,
+      body: JSON.stringify({ status: "rejected" }),
+    });
+    onUpdated?.();
+  }
 
   return (
     <article className={`bet-card ${erDinTur ? "din-tur" : ""}`}>
@@ -61,8 +101,12 @@ export default function BetCard({ bet, creatorId }) {
 
       {erDinTur && (
         <div className="bet-handlinger">
-          <button className="bet-afvis-btn">Afvis</button>
-          <button className="bet-godkend-btn">Godkend bet →</button>
+          <button className="bet-afvis-btn" onClick={handleAfvis}>
+            Afvis
+          </button>
+          <button className="bet-godkend-btn" onClick={handleGodkend}>
+            Godkend bet →
+          </button>
         </div>
       )}
     </article>

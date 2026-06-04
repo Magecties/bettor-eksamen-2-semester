@@ -16,14 +16,15 @@ export default function BetsPage() {
   const [filter, setFilter] = useState("alle");
   const [sortering, setSortering] = useState("seneste");
 
+  async function getBets() {
+    const query =
+      "/bets?select=*,creator:users(username,name,avatar),participants:bet_participants(*,user:users(username,name,avatar)),stake:stakes(*)&order=created_at.desc";
+    const response = await fetch(URL + query, { headers });
+    const data = await response.json();
+    setBets(data);
+  }
+
   useEffect(() => {
-    async function getBets() {
-      const query =
-        "/bets?select=*,creator:users(username,name,avatar),participants:bet_participants(*,user:users(username,name,avatar)),stake:stakes(*)&order=created_at.desc";
-      const response = await fetch(URL + query, { headers });
-      const data = await response.json();
-      setBets(data);
-    }
     getBets();
   }, []);
 
@@ -104,7 +105,12 @@ export default function BetsPage() {
 
       <section className="bets-grid" aria-label="Alle bets">
         {filtreret.map((bet) => (
-          <BetCard key={bet.id} bet={bet} creatorId={CREATOR_ID} />
+          <BetCard
+            key={bet.id}
+            bet={bet}
+            creatorId={CREATOR_ID}
+            onUpdated={getBets}
+          />
         ))}
       </section>
     </div>
