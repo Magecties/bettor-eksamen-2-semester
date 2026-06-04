@@ -114,6 +114,12 @@
   animation: ob-logo-pulse 2.4s ease-in-out infinite;
 }
 
+.onboarding-blob {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 32px;
+}
+
 /* Trin 2 — nedtælling */
 
 .onboarding-timer {
@@ -440,6 +446,15 @@
   padding: 60px 28px 40px;
   box-sizing: border-box;
   animation: ob-fade-in 0.5s ease;
+}
+
+.onboarding-done-blast {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .onboarding-done-indhold {

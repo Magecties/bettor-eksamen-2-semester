@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import blobIdle from "../assets/lotties/blobbo-idle.json?url";
+import emojiExplosion from "../assets/lotties/emoji-explosion.json?url";
 import "../css/onboarding.css";
 
 const totalSteps = 5;
@@ -68,6 +71,11 @@ export default function OnboardingPage() {
   if (done) {
     return (
       <div className="onboarding-done">
+        <DotLottieReact
+          src={emojiExplosion}
+          autoplay
+          className="onboarding-done-blast"
+        />
         <div className="onboarding-done-indhold">
           <span className="onboarding-done-emoji" role="img" aria-label="håndtryk">
             🤝
@@ -103,10 +111,12 @@ export default function OnboardingPage() {
       <div className="onboarding-body" key={step}>
         {step === 1 && (
           <div className="onboarding-trin onboarding-trin-1">
-            <svg className="onboarding-logo" viewBox="0 0 100 80" aria-hidden="true">
-              <path d="M50 18 C 32 30 28 48 38 66" />
-              <path d="M50 18 C 68 30 72 48 62 66" />
-            </svg>
+            <DotLottieReact
+              src={blobIdle}
+              loop
+              autoplay
+              className="onboarding-blob"
+            />
             <p className="onboarding-eyebrow">Velkommen til Bettor</p>
             <h1 className="onboarding-title">Ingen kan <em>gemme sig.</em></h1>
             <p className="onboarding-text">
