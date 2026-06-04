@@ -2,10 +2,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  background: #0d0c0f;
-  color: #fff;
-  max-width: 480px;
-  margin: 0 auto;
+  background: var(--color-primary);
+  color: var(--color-secondary);
   padding: 0 24px;
   box-sizing: border-box;
 }
@@ -20,24 +18,31 @@
 }
 
 .onboarding-back {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--neutral-800);
+  background: var(--neutral-900);
+  color: var(--color-secondary);
+  font-size: 18px;
   cursor: pointer;
   padding: 0;
-  opacity: 0.6;
-  transition: opacity 0.15s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .onboarding-back:hover {
-  opacity: 1;
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
 }
 
 .onboarding-stepcount {
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--neutral-400);
   letter-spacing: 1.5px;
 }
 
@@ -63,32 +68,36 @@
 }
 
 .onboarding-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--neutral-400);
   margin: 0 0 14px;
 }
 
 .onboarding-title {
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 105%;
-  letter-spacing: -1.5px;
-  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--display-size);
+  line-height: var(--display-line);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  color: var(--color-secondary);
   margin: 0 0 16px;
 }
 
 .onboarding-title em {
   font-style: normal;
-  color: #e8b84b;
+  color: var(--color-accent);
 }
 
 .onboarding-text {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 150%;
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  color: var(--neutral-400);
   margin: 0;
 }
 
@@ -98,7 +107,7 @@
   width: 76px;
   height: 60px;
   fill: none;
-  stroke: #e8b84b;
+  stroke: var(--color-accent);
   stroke-width: 7;
   stroke-linecap: round;
   margin-bottom: 56px;
@@ -108,10 +117,11 @@
 /* Trin 2 — nedtælling */
 
 .onboarding-timer {
+  font-family: var(--font-display);
   font-size: 88px;
   font-weight: 800;
   letter-spacing: -3px;
-  color: #e8b84b;
+  color: var(--color-accent);
   line-height: 1;
   margin: 0 0 20px;
   font-variant-numeric: tabular-nums;
@@ -130,10 +140,11 @@
 .onboarding-chip {
   padding: 9px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
+  border: 1px solid var(--neutral-800);
+  background: var(--neutral-900);
+  color: var(--neutral-200);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 600;
   opacity: 0;
   animation: ob-rise 0.45s ease forwards;
@@ -152,9 +163,10 @@
 /* badge-label over overskriften */
 
 .onboarding-badge {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-family: var(--font-body);
+  font-size: var(--caption-size);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   padding: 6px 12px;
   border-radius: 999px;
@@ -162,13 +174,13 @@
 }
 
 .onboarding-badge.rod {
-  background: rgba(232, 75, 75, 0.15);
-  color: #f0746f;
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
 }
 
 .onboarding-badge.gul {
-  background: #e8b84b;
-  color: #0d0c0f;
+  background: var(--color-accent);
+  color: var(--color-primary);
 }
 
 /* Trin 3 — liste over skyldnere */
@@ -189,8 +201,8 @@
   gap: 14px;
   padding: 14px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
   opacity: 0;
   animation: ob-rise 0.45s ease forwards;
 }
@@ -209,19 +221,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-accent);
   flex-shrink: 0;
 }
 
 .onboarding-list-avatar.mathias {
-  background: #d9534f;
+  background: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .onboarding-list-avatar.sofie {
-  background: #e8b84b;
-  color: #0d0c0f;
+  background: var(--color-accent);
+  color: var(--color-primary);
 }
 
 .onboarding-list-tekst {
@@ -231,14 +246,16 @@
 }
 
 .onboarding-list-navn {
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 600;
-  color: #fff;
+  color: var(--color-secondary);
 }
 
 .onboarding-list-note {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  font-size: var(--caption-size);
+  color: var(--neutral-500);
 }
 
 /* spam-banner */
@@ -252,8 +269,8 @@
   margin-top: 10px;
   padding: 14px;
   border-radius: 16px;
-  background: rgba(232, 184, 75, 0.1);
-  border: 1px solid rgba(232, 184, 75, 0.35);
+  background: var(--color-accent-muted);
+  border: 1px solid var(--color-accent-dark);
   box-sizing: border-box;
   opacity: 0;
   animation: ob-rise 0.45s ease 0.45s forwards;
@@ -263,27 +280,26 @@
   display: flex;
   flex-direction: column;
   text-align: left;
+  font-family: var(--font-body);
+  font-size: var(--caption-size);
+  color: var(--neutral-400);
 }
 
 .onboarding-spam-tekst strong {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #e8b84b;
-}
-
-.onboarding-spam-tekst {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.45);
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
+  color: var(--color-accent);
 }
 
 .onboarding-spam-knap {
   flex-shrink: 0;
   padding: 8px 14px;
   border-radius: 999px;
-  background: #e8b84b;
-  color: #0d0c0f;
-  font-size: 13px;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 700;
   white-space: nowrap;
   animation: ob-shake 2.5s ease-in-out infinite;
@@ -305,10 +321,11 @@
   gap: 10px;
   padding: 14px 16px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
+  color: var(--neutral-200);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 600;
   opacity: 0;
   animation: ob-rise 0.4s ease forwards;
@@ -334,9 +351,9 @@
 }
 
 .onboarding-grid-item.highlight {
-  background: rgba(232, 184, 75, 0.15);
-  border-color: rgba(232, 184, 75, 0.45);
-  color: #fff;
+  background: var(--color-accent-muted);
+  border-color: var(--color-accent-dark);
+  color: var(--color-secondary);
 }
 
 .onboarding-grid-emoji {
@@ -349,16 +366,17 @@
   margin-top: 24px;
   padding: 14px 16px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 150%;
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  line-height: var(--body-small-line);
+  color: var(--neutral-400);
   text-align: left;
 }
 
 .onboarding-protip strong {
-  color: #e8b84b;
+  color: var(--color-accent);
 }
 
 /* Prikker (progress) */
@@ -374,13 +392,13 @@
   width: 7px;
   height: 7px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  background: var(--neutral-800);
+  transition: background 0.3s ease, width 0.3s ease;
 }
 
 .onboarding-dot.aktiv {
   width: 22px;
-  background: #e8b84b;
+  background: var(--color-accent);
 }
 
 /* Footer-knap */
@@ -392,18 +410,19 @@
 .onboarding-cta {
   width: 100%;
   padding: 18px;
-  background: #e8b84b;
-  color: #0d0c0f;
+  background: var(--color-accent);
+  color: var(--color-primary);
   border: none;
   border-radius: 999px;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.15s, transform 0.1s;
+  transition: background 0.15s, transform 0.1s;
 }
 
 .onboarding-cta:hover {
-  opacity: 0.9;
+  background: var(--color-accent-light);
 }
 
 .onboarding-cta:active {
@@ -417,11 +436,9 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100svh;
-  background: #e8b84b;
+  background: var(--color-accent);
   padding: 60px 28px 40px;
   box-sizing: border-box;
-  max-width: 480px;
-  margin: 0 auto;
   animation: ob-fade-in 0.5s ease;
 }
 
@@ -441,35 +458,38 @@
 }
 
 .onboarding-done-indhold h1 {
+  font-family: var(--font-display);
   font-size: 52px;
   font-weight: 900;
   line-height: 100%;
   letter-spacing: -2px;
-  color: #0d0c0f;
+  color: var(--color-primary);
   margin: 0 0 18px;
 }
 
 .onboarding-done-indhold p {
-  font-size: 16px;
-  color: rgba(13, 12, 15, 0.65);
-  line-height: 150%;
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
+  line-height: var(--body-large-line);
+  color: var(--neutral-800);
 }
 
 .onboarding-done-cta {
   width: 100%;
   padding: 18px;
-  background: #0d0c0f;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-secondary);
   border: none;
   border-radius: 999px;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.15s, transform 0.1s;
+  transition: background 0.15s, transform 0.1s;
 }
 
 .onboarding-done-cta:hover {
-  opacity: 0.85;
+  background: var(--neutral-900);
 }
 
 .onboarding-done-cta:active {
@@ -514,10 +534,10 @@
 @keyframes ob-glow {
   0%,
   100% {
-    text-shadow: 0 0 0 rgba(232, 184, 75, 0);
+    text-shadow: 0 0 0 rgba(254, 248, 61, 0);
   }
   50% {
-    text-shadow: 0 0 28px rgba(232, 184, 75, 0.55);
+    text-shadow: 0 0 28px rgba(254, 248, 61, 0.55);
   }
 }
 

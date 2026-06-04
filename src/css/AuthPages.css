@@ -1,26 +1,52 @@
 .auth-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
   background: var(--color-primary);
   color: var(--color-secondary);
-  min-height: 100svh;
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 60px 24px 40px;
+  padding: 0 24px;
   box-sizing: border-box;
+  animation: auth-fade-in 0.4s ease;
 }
 
-.auth-page h1 {
+.auth-page__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.auth-page__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--neutral-400);
+  margin: 0 0 14px;
+}
+
+.auth-page__title {
   font-family: var(--font-display);
   font-size: var(--display-size);
   line-height: var(--display-line);
   font-weight: var(--display-weight);
   letter-spacing: var(--display-tracking);
   color: var(--color-secondary);
-  margin: 0 0 8px;
+  margin: 0 0 16px;
 }
 
-.auth-page__subtitle {
+.auth-page__title em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+
+.auth-page__text {
   font-family: var(--font-body);
   font-size: var(--body-size);
+  line-height: var(--body-line);
   color: var(--neutral-400);
   margin: 0 0 32px;
 }
@@ -39,7 +65,7 @@
 .auth-page__form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .auth-page__field {
@@ -56,14 +82,15 @@
 }
 
 .auth-page__field input {
-  padding: 12px 14px;
-  border-radius: 10px;
+  padding: 14px 16px;
+  border-radius: 12px;
   border: 1px solid var(--neutral-800);
   background: var(--neutral-900);
   color: var(--color-secondary);
   font-family: var(--font-body);
   font-size: var(--body-size);
   outline: none;
+  transition: border-color 0.15s;
 }
 
 .auth-page__field input:focus {
@@ -71,7 +98,8 @@
 }
 
 .auth-page__cta {
-  padding: 14px;
+  width: 100%;
+  padding: 18px;
   border-radius: 999px;
   border: none;
   background: var(--color-accent);
@@ -80,12 +108,16 @@
   font-size: var(--body-large-size);
   font-weight: 700;
   cursor: pointer;
-  margin-top: 8px;
-  transition: background 0.15s;
+  margin-top: 12px;
+  transition: background 0.15s, transform 0.1s;
 }
 
 .auth-page__cta:hover {
   background: var(--color-accent-light);
+}
+
+.auth-page__cta:active {
+  transform: scale(0.98);
 }
 
 .auth-page__switch {
@@ -104,4 +136,15 @@
 
 .auth-page__switch a:hover {
   color: var(--color-accent-light);
+}
+
+@keyframes auth-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

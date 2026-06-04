@@ -108,7 +108,7 @@ export default function OnboardingPage() {
               <path d="M50 18 C 68 30 72 48 62 66" />
             </svg>
             <p className="onboarding-eyebrow">Velkommen til Bettor</p>
-            <h1 className="onboarding-title">Ingen kan gemme sig.</h1>
+            <h1 className="onboarding-title">Ingen kan <em>gemme sig.</em></h1>
             <p className="onboarding-text">
               Bettor låser jeres aftaler fast. Sagt er sagt — også i morgen.
             </p>
