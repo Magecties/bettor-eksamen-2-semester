@@ -8,6 +8,7 @@ import VennerPage from "./pages/VennerPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProfileDetailPage from "./pages/ProfileDetailPage";
 import BetDetailPage from "./pages/BetDetailPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import { BottomNav } from "./components/BottomNav";
@@ -52,6 +53,7 @@ function App() {
         <Route path="/venner" element={<VennerPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profile/edit" element={<ProfileDetailPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       {!hideNav && <BottomNav />}
