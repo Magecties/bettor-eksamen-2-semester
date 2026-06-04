@@ -7,6 +7,7 @@ import OnboardingPage from "./pages/OnboardingPage";
 import VennerPage from "./pages/VennerPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProfileDetailPage from "./pages/ProfileDetailPage";
+import BetDetailPage from "./pages/BetDetailPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import { BottomNav } from "./components/BottomNav";
@@ -46,6 +47,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/bets" element={<BetsPage />} />
         <Route path="/bets/opret" element={<CreateBetPage />} />
+        <Route path="/bets/:id" element={<BetDetailPage />} />
         <Route path="/opret" element={<CreateBetPage />} />
         <Route path="/venner" element={<VennerPage />} />
         <Route path="/profile" element={<ProfilePage />} />

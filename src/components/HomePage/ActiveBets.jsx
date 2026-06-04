@@ -55,6 +55,7 @@ export function ActiveBets() {
             return (
               <ActiveBetCard
                 key={bet.id}
+                id={bet.id}
                 opponentName={opponent?.users?.name}
                 description={bet.description}
                 emoji={bet.stake?.emoji}

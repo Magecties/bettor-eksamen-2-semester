@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router";
+
 const URL = import.meta.env.VITE_SUPABASE_URL;
 const headers = {
   apikey: import.meta.env.VITE_SUPABASE_APIKEY,
@@ -5,6 +7,7 @@ const headers = {
 };
 
 export default function BetCard({ bet, creatorId, onUpdated }) {
+  const navigate = useNavigate();
   const formattedDate = new Date(bet.created_at).toLocaleString("da-DK", {
     dateStyle: "short",
     timeStyle: "short",
@@ -97,8 +100,17 @@ export default function BetCard({ bet, creatorId, onUpdated }) {
     onUpdated?.();
   }
 
+  function handleCardClick(event) {
+    if (event.target.closest("button")) return;
+    navigate(`/bets/${bet.id}`);
+  }
+
   return (
-    <article className={`bet-card ${erDinTur ? "din-tur" : ""}`}>
+    <article
+      className={`bet-card ${erDinTur ? "din-tur" : ""}`}
+      onClick={handleCardClick}
+      style={{ cursor: "pointer" }}
+    >
       <div className="bet-card-top">
         <div className="bet-avatarer">
           <div className="bet-avatar bet-avatar-dig">D</div>

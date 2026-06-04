@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router";
 import "../../css/ActiveBetCard.css";
 
-export function ActiveBetCard({ opponentName, description, emoji, createdAt }) {
+export function ActiveBetCard({ id, opponentName, description, emoji, createdAt }) {
+  const navigate = useNavigate();
   const initial = opponentName ? opponentName.charAt(0).toUpperCase() : "?";
 
   const created = new Date(createdAt);
@@ -12,7 +14,11 @@ export function ActiveBetCard({ opponentName, description, emoji, createdAt }) {
   else dateText = "for " + diffDays + " dage siden";
 
   return (
-    <article className="active-bet-card">
+    <article
+      className="active-bet-card"
+      onClick={() => id && navigate(`/bets/${id}`)}
+      style={{ cursor: "pointer" }}
+    >
       <div className="active-bet-card__avatar">{initial}</div>
 
       <div className="active-bet-card__info">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { useAuth } from "../../AuthContext";
 import "../../css/PendingCard.css";
 
@@ -9,6 +10,7 @@ const headers = {
 };
 
 export function PendingCard() {
+  const navigate = useNavigate();
   const { profile } = useAuth();
   const [acceptances, setAcceptances] = useState(0);
   const [resolutions, setResolutions] = useState(0);
@@ -42,7 +44,7 @@ export function PendingCard() {
   }
 
   return (
-    <button type="button" className="pending-card">
+    <button type="button" className="pending-card" onClick={() => navigate("/bets")}>
       <span className="pending-card__icon">⏰</span>
       <div className="pending-card__info">
         <h2 className="pending-card__title">

@@ -1,0 +1,267 @@
+.bet-detail {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 0 20px 32px;
+  box-sizing: border-box;
+}
+
+.bet-detail__loading {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--neutral-400);
+}
+
+/* Top bar */
+
+.bet-detail__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.bet-detail__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--neutral-800);
+  background: var(--neutral-900);
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.bet-detail__back:hover {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+
+.bet-detail__back svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bet-detail__badge {
+  font-family: var(--font-body);
+  font-size: var(--caption-size);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.bet-detail__badge.din-tur {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.bet-detail__badge.afventer {
+  background: var(--neutral-800);
+  color: var(--neutral-400);
+}
+
+.bet-detail__badge.aktiv {
+  background: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+/* Body */
+
+.bet-detail__body {
+  flex: 1;
+  padding: 16px 0;
+}
+
+.bet-detail__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--neutral-400);
+  margin: 0 0 10px;
+}
+
+.bet-detail__description {
+  font-family: var(--font-display);
+  font-size: var(--display-size);
+  line-height: var(--display-line);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  color: var(--color-secondary);
+  margin: 0 0 20px;
+}
+
+.bet-detail__stake {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--neutral-800);
+  background: var(--neutral-900);
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.bet-detail__stake-emoji {
+  font-size: 20px;
+}
+
+.bet-detail__section {
+  margin-bottom: 24px;
+}
+
+.bet-detail__label {
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--neutral-400);
+  margin: 0 0 10px;
+}
+
+.bet-detail__meta {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+/* Players */
+
+.bet-detail__players {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bet-detail__player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
+}
+
+.bet-detail__player-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.bet-detail__player-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bet-detail__player-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.bet-detail__player-name {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.bet-detail__player-role {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--neutral-500);
+}
+
+/* Winner banner */
+
+.bet-detail__winner {
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--color-accent-muted);
+  border: 1px solid var(--color-accent-dark);
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
+  text-align: center;
+}
+
+/* Footer actions */
+
+.bet-detail__footer {
+  padding-top: 12px;
+}
+
+.bet-detail__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.bet-detail__afvis,
+.bet-detail__godkend {
+  padding: 14px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.bet-detail__afvis {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--neutral-800);
+  color: var(--neutral-400);
+}
+
+.bet-detail__afvis:hover {
+  background: var(--neutral-900);
+  border-color: var(--neutral-700);
+  color: var(--color-secondary);
+}
+
+.bet-detail__godkend {
+  flex: 2;
+  background: var(--color-accent);
+  border: none;
+  color: var(--color-primary);
+}
+
+.bet-detail__godkend:hover {
+  background: var(--color-accent-light);
+}
+
+.bet-detail__pending-text {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  color: var(--neutral-400);
+  text-align: center;
+  margin: 0;
+}
