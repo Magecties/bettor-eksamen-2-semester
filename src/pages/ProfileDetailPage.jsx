@@ -35,9 +35,34 @@ function ProfileDetailForm({ profile }) {
     navigate("/profile");
   }
 
+  const initial = (name || username || "?").charAt(0).toUpperCase();
+
   return (
     <div className="profile-detail">
-      <h1>Rediger profil</h1>
+      <div className="profile-detail__topbar">
+        <button
+          type="button"
+          className="profile-detail__back"
+          aria-label="Tilbage"
+          onClick={() => navigate("/profile")}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <h1 className="profile-detail__title">Rediger profil</h1>
+        <span className="profile-detail__spacer" />
+      </div>
+
+      <div className="profile-detail__avatar-wrap">
+        {avatar ? (
+          <img src={avatar} alt={name} className="profile-detail__avatar" />
+        ) : (
+          <div className="profile-detail__avatar profile-detail__avatar--placeholder">
+            {initial}
+          </div>
+        )}
+      </div>
 
       <form className="profile-detail__form" onSubmit={handleSubmit}>
         <label className="profile-detail__field">
@@ -46,6 +71,7 @@ function ProfileDetailForm({ profile }) {
             type="url"
             value={avatar}
             onChange={(e) => setAvatar(e.target.value)}
+            placeholder="https://…"
           />
         </label>
 
@@ -73,14 +99,21 @@ function ProfileDetailForm({ profile }) {
             rows={4}
             value={bio}
             onChange={(e) => setBio(e.target.value)}
+            placeholder="Fortæl lidt om dig selv"
           />
         </label>
 
         <div className="profile-detail__actions">
-          <button type="button" onClick={() => navigate("/profile")}>
+          <button
+            type="button"
+            className="profile-detail__cancel"
+            onClick={() => navigate("/profile")}
+          >
             Annuller
           </button>
-          <button type="submit">Gem</button>
+          <button type="submit" className="profile-detail__save">
+            Gem
+          </button>
         </div>
       </form>
     </div>

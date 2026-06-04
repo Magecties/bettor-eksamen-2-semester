@@ -2,24 +2,82 @@
   background: var(--color-primary);
   color: var(--color-secondary);
   min-height: 100svh;
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 24px 20px 120px;
+  padding: 0 20px 120px;
 }
 
-.profile-detail h1 {
+.profile-detail__topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0 8px;
+}
+
+.profile-detail__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--neutral-800);
+  background: var(--neutral-900);
   color: var(--color-secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.profile-detail h1 {
-  margin-bottom: 20px;
+.profile-detail__back:hover {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
 }
 
-.profile-detail__error {
-  color: var(--color-accent-dark);
-  font-size: var(--body-small-size);
-  line-height: var(--body-small-line);
-  margin-bottom: 12px;
+.profile-detail__back svg {
+  width: 18px;
+  height: 18px;
+}
+
+.profile-detail__title {
+  font-family: var(--font-display);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  font-weight: var(--h2-weight);
+  letter-spacing: var(--h2-tracking);
+  color: var(--color-secondary);
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.profile-detail__spacer {
+  display: block;
+  width: 38px;
+  flex-shrink: 0;
+}
+
+.profile-detail__avatar-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 24px;
+}
+
+.profile-detail__avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-accent);
+  background: var(--neutral-900);
+}
+
+.profile-detail__avatar--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-accent);
 }
 
 .profile-detail__form {
@@ -32,66 +90,73 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: var(--body-small-size);
 }
 
 .profile-detail__field span {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
   font-weight: 600;
   color: var(--color-secondary);
 }
 
 .profile-detail__field input,
 .profile-detail__field textarea {
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: 12px 14px;
+  border-radius: 10px;
   border: 1px solid var(--neutral-800);
-  font-size: var(--body-size);
-  line-height: var(--body-line);
-  font-family: var(--font-body);
   background: var(--neutral-900);
   color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  outline: none;
+  resize: vertical;
+}
+
+.profile-detail__field input::placeholder,
+.profile-detail__field textarea::placeholder {
+  color: var(--neutral-500);
 }
 
 .profile-detail__field input:focus,
 .profile-detail__field textarea:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 1px;
-  border-color: transparent;
+  border-color: var(--color-accent);
 }
 
 .profile-detail__actions {
   display: flex;
-  justify-content: flex-end;
   gap: 10px;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .profile-detail__cancel,
 .profile-detail__save {
-  padding: 10px 18px;
-  border-radius: 8px;
+  flex: 1;
+  padding: 14px;
+  border-radius: 999px;
   font-family: var(--font-body);
-  font-size: var(--label-size);
-  font-weight: var(--label-weight);
+  font-size: var(--body-size);
+  font-weight: 700;
   cursor: pointer;
-  border: 1px solid var(--border);
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .profile-detail__cancel {
   background: transparent;
-  color: var(--color-secondary);
-  border-color: var(--neutral-800);
+  border: 1px solid var(--neutral-800);
+  color: var(--neutral-400);
 }
 
 .profile-detail__cancel:hover {
   background: var(--neutral-900);
+  border-color: var(--neutral-700);
+  color: var(--color-secondary);
 }
 
 .profile-detail__save {
   background: var(--color-accent);
+  border: none;
   color: var(--color-primary);
-  border-color: var(--color-accent-dark);
 }
 
 .profile-detail__save:hover {
