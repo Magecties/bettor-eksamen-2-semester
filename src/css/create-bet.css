@@ -512,6 +512,12 @@
   z-index: 2;
 }
 
+.sendt-blob {
+  width: 160px;
+  height: 160px;
+  margin: 0 0 8px -12px;
+}
+
 .sendt-indhold h1 {
   font-family: var(--font-display);
   font-size: 48px;
