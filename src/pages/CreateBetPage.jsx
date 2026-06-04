@@ -106,7 +106,7 @@ export default function CreateBetPage() {
   return (
     <div className="create-bet-page">
       <div className="create-bet-header">
-        <button className="create-bet-close" onClick={() => navigate("/bets")}>
+        <button className="create-bet-close" onClick={() => navigate("/")}>
           ✕
         </button>
         <span className="create-bet-step-count">

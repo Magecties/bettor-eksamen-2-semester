@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import BetCard from "../components/BetCard";
 import "../css/bets-page.css";
 
@@ -62,7 +61,6 @@ export default function BetsPage() {
           <h1>Alle bets</h1>
           <p>{bets.length} bets i alt · {aktiveBets.length} kører lige nu</p>
         </div>
-        <Link to="/bets/opret" className="create-bet-btn">+ Opret</Link>
       </header>
 
       <div className="bets-soeg">
