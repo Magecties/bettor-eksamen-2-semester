@@ -1,8 +1,16 @@
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import emojiExplosion from "../assets/lotties/emoji-explosion.json?url";
+
 export default function SendtSkærm({ modstander, navigate }) {
   const navn = modstander?.name ?? modstander?.username ?? "modstanderen";
 
   return (
     <div className="sendt-side">
+      <DotLottieReact
+        src={emojiExplosion}
+        autoplay
+        className="sendt-blast"
+      />
       <div className="sendt-indhold">
         <h1>Sendt til<br />{navn}.</h1>
         <p>

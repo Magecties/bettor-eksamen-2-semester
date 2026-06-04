@@ -503,6 +503,15 @@
   box-sizing: border-box;
 }
 
+.sendt-blast {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .sendt-indhold h1 {
   font-family: var(--font-display);
   font-size: 48px;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useAuth } from "../AuthContext";
+import { BlobLoader } from "../components/BlobLoader";
 import "../css/BetDetailPage.css";
 
 const URL = import.meta.env.VITE_SUPABASE_URL;
@@ -29,7 +30,7 @@ function BetDetailPage() {
   if (!bet || !profile) {
     return (
       <div className="bet-detail">
-        <p className="bet-detail__loading">Indlæser…</p>
+        <BlobLoader />
       </div>
     );
   }

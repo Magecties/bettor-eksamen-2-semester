@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { useAuth } from "../AuthContext";
+import logo from "../assets/bettor-logo.png";
 import "../css/AuthPages.css";
 
 function LoginPage() {
@@ -25,6 +26,7 @@ function LoginPage() {
   return (
     <div className="auth-page">
       <div className="auth-page__body">
+        <img className="auth-page__logo" src={logo} alt="Bettor" />
         <p className="auth-page__eyebrow">Log ind</p>
         <h1 className="auth-page__title">
           Velkommen <em>tilbage.</em>
