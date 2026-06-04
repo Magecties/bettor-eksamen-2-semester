@@ -65,41 +65,6 @@ export default function BetCard({ bet, creatorId, onUpdated }) {
     onUpdated?.();
   }
 
-  async function handleAfgoer(jegVandt) {
-    const modstanderUserId = bet.participants?.find(
-      (p) => p.user_id !== creatorId
-    )?.user_id;
-
-    await fetch(
-      URL + `/bet_participants?bet_id=eq.${bet.id}&user_id=eq.${creatorId}`,
-      {
-        method: "PATCH",
-        headers,
-        body: JSON.stringify({ is_winner: jegVandt }),
-      }
-    );
-
-    if (modstanderUserId) {
-      await fetch(
-        URL +
-          `/bet_participants?bet_id=eq.${bet.id}&user_id=eq.${modstanderUserId}`,
-        {
-          method: "PATCH",
-          headers,
-          body: JSON.stringify({ is_winner: !jegVandt }),
-        }
-      );
-    }
-
-    await fetch(URL + `/bets?id=eq.${bet.id}`, {
-      method: "PATCH",
-      headers,
-      body: JSON.stringify({ status: "resolved" }),
-    });
-
-    onUpdated?.();
-  }
-
   function handleCardClick(event) {
     if (event.target.closest("button")) return;
     navigate(`/bets/${bet.id}`);
@@ -161,16 +126,10 @@ export default function BetCard({ bet, creatorId, onUpdated }) {
       {erAktiv && (
         <div className="bet-handlinger">
           <button
-            className="bet-afvis-btn"
-            onClick={() => handleAfgoer(false)}
-          >
-            Jeg tabte
-          </button>
-          <button
             className="bet-godkend-btn"
-            onClick={() => handleAfgoer(true)}
+            onClick={() => navigate(`/bets/${bet.id}/afgoer`)}
           >
-            Jeg vandt 🏆
+            Afgør bet →
           </button>
         </div>
       )}

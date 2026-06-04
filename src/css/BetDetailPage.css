@@ -258,6 +258,10 @@
   background: var(--color-accent-light);
 }
 
+.bet-detail__afgoer {
+  width: 100%;
+}
+
 .bet-detail__pending-text {
   font-family: var(--font-body);
   font-size: var(--body-size);

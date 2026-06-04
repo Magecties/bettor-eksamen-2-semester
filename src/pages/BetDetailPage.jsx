@@ -201,14 +201,12 @@ function BetDetailPage() {
         )}
 
         {erAktiv && (
-          <div className="bet-detail__actions">
-            <button className="bet-detail__afvis" onClick={() => handleAfgoer(false)}>
-              Jeg tabte
-            </button>
-            <button className="bet-detail__godkend" onClick={() => handleAfgoer(true)}>
-              Jeg vandt 🏆
-            </button>
-          </div>
+          <button
+            className="bet-detail__godkend bet-detail__afgoer"
+            onClick={() => navigate(`/bets/${bet.id}/afgoer`)}
+          >
+            Afgør bet →
+          </button>
         )}
 
         {erAfventer && (

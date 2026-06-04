@@ -1,0 +1,173 @@
+.afgoer-bet {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 12px 20px 24px;
+  box-sizing: border-box;
+}
+
+.afgoer-bet__loading {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--neutral-400);
+}
+
+.afgoer-bet__handle {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--neutral-700);
+  margin: 8px auto 24px;
+}
+
+.afgoer-bet__title {
+  font-family: var(--font-display);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  font-weight: var(--h1-weight);
+  letter-spacing: var(--h1-tracking);
+  text-align: center;
+  color: var(--color-secondary);
+  margin: 0 0 12px;
+}
+
+.afgoer-bet__quote {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  color: var(--neutral-400);
+  margin: 0 0 32px;
+  font-style: italic;
+}
+
+.afgoer-bet__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.afgoer-bet__option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
+  color: var(--color-secondary);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.afgoer-bet__option:hover {
+  background: var(--neutral-800);
+}
+
+.afgoer-bet__option--selected {
+  background: var(--color-accent-muted);
+  border-color: var(--color-accent-dark);
+}
+
+.afgoer-bet__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.afgoer-bet__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+
+.afgoer-bet__name {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.afgoer-bet__me {
+  color: var(--neutral-400);
+  font-weight: 400;
+}
+
+.afgoer-bet__status {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.afgoer-bet__option:not(.afgoer-bet__option--selected) .afgoer-bet__status {
+  color: var(--neutral-500);
+  font-weight: 400;
+}
+
+.afgoer-bet__check {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.afgoer-bet__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 24px;
+}
+
+.afgoer-bet__confirm {
+  width: 100%;
+  padding: 18px;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: var(--body-large-size);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.afgoer-bet__confirm:hover:not(:disabled) {
+  background: var(--color-accent-light);
+}
+
+.afgoer-bet__confirm:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.afgoer-bet__cancel {
+  background: none;
+  border: none;
+  color: var(--neutral-400);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 12px;
+}
+
+.afgoer-bet__cancel:hover {
+  color: var(--color-secondary);
+}

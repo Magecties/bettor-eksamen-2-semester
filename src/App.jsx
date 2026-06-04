@@ -8,6 +8,8 @@ import VennerPage from "./pages/VennerPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProfileDetailPage from "./pages/ProfileDetailPage";
 import BetDetailPage from "./pages/BetDetailPage";
+import AfgoerBetPage from "./pages/AfgoerBetPage";
+import NotifikationerPage from "./pages/NotifikationerPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
@@ -37,6 +39,7 @@ function App() {
   const hideNav =
     location.pathname === "/opret" ||
     location.pathname === "/bets/opret" ||
+    location.pathname.endsWith("/afgoer") ||
     onPublicPage;
 
   return (
@@ -49,6 +52,8 @@ function App() {
         <Route path="/bets" element={<BetsPage />} />
         <Route path="/bets/opret" element={<CreateBetPage />} />
         <Route path="/bets/:id" element={<BetDetailPage />} />
+        <Route path="/bets/:id/afgoer" element={<AfgoerBetPage />} />
+        <Route path="/notifikationer" element={<NotifikationerPage />} />
         <Route path="/opret" element={<CreateBetPage />} />
         <Route path="/venner" element={<VennerPage />} />
         <Route path="/profile" element={<ProfilePage />} />
