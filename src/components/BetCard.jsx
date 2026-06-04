@@ -17,6 +17,7 @@ export default function BetCard({ bet, creatorId, onUpdated }) {
   const minDeltager = bet.participants?.find((p) => p.user_id === creatorId);
   const erDinTur = minDeltager?.role === "counterparty" && minDeltager?.acceptance === "pending";
   const erAfventer = minDeltager?.role === "creator" && bet.status === "pending";
+  const erAktiv = bet.status === "active" && minDeltager && minDeltager.is_winner === null;
 
   function getBadge() {
     if (erDinTur) return { label: "Din tur", klasse: "din-tur" };
@@ -58,6 +59,41 @@ export default function BetCard({ bet, creatorId, onUpdated }) {
       headers,
       body: JSON.stringify({ status: "rejected" }),
     });
+    onUpdated?.();
+  }
+
+  async function handleAfgoer(jegVandt) {
+    const modstanderUserId = bet.participants?.find(
+      (p) => p.user_id !== creatorId
+    )?.user_id;
+
+    await fetch(
+      URL + `/bet_participants?bet_id=eq.${bet.id}&user_id=eq.${creatorId}`,
+      {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify({ is_winner: jegVandt }),
+      }
+    );
+
+    if (modstanderUserId) {
+      await fetch(
+        URL +
+          `/bet_participants?bet_id=eq.${bet.id}&user_id=eq.${modstanderUserId}`,
+        {
+          method: "PATCH",
+          headers,
+          body: JSON.stringify({ is_winner: !jegVandt }),
+        }
+      );
+    }
+
+    await fetch(URL + `/bets?id=eq.${bet.id}`, {
+      method: "PATCH",
+      headers,
+      body: JSON.stringify({ status: "resolved" }),
+    });
+
     onUpdated?.();
   }
 
@@ -106,6 +142,23 @@ export default function BetCard({ bet, creatorId, onUpdated }) {
           </button>
           <button className="bet-godkend-btn" onClick={handleGodkend}>
             Godkend bet →
+          </button>
+        </div>
+      )}
+
+      {erAktiv && (
+        <div className="bet-handlinger">
+          <button
+            className="bet-afvis-btn"
+            onClick={() => handleAfgoer(false)}
+          >
+            Jeg tabte
+          </button>
+          <button
+            className="bet-godkend-btn"
+            onClick={() => handleAfgoer(true)}
+          >
+            Jeg vandt 🏆
           </button>
         </div>
       )}
