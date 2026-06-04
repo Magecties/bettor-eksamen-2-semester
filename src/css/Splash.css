@@ -1,0 +1,12 @@
+.splash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  background: var(--color-primary);
+}
+
+.splash__anim {
+  width: 180px;
+  height: 180px;
+}

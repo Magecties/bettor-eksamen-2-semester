@@ -11,6 +11,7 @@ import BetDetailPage from "./pages/BetDetailPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import { BottomNav } from "./components/BottomNav";
+import { Splash } from "./components/Splash";
 import "./css/App.css";
 
 const publicPaths = ["/login", "/signup", "/onboarding"];
@@ -19,7 +20,7 @@ function App() {
   const location = useLocation();
   const { session, loading } = useAuth();
 
-  if (loading) return null;
+  if (loading) return <Splash />;
 
   const onPublicPage = publicPaths.includes(location.pathname);
 
