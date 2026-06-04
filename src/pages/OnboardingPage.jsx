@@ -61,7 +61,7 @@ export default function OnboardingPage() {
 
   function afslut() {
     localStorage.setItem("bettor_onboarded", "true");
-    navigate("/bets");
+    navigate("/signup");
   }
 
   // sidste skærm — gul afslutning
