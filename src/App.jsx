@@ -28,12 +28,16 @@ function App() {
   const onPublicPage = publicPaths.includes(location.pathname);
 
   if (!session && !onPublicPage) {
-    // nye besøgere ser preboarding først, ellers ryger man til login
     const harSetOnboarding = localStorage.getItem("bettor_onboarded");
-    return <Navigate to={harSetOnboarding ? "/login" : "/onboarding"} replace />;
+    return (
+      <Navigate to={harSetOnboarding ? "/login" : "/onboarding"} replace />
+    );
   }
 
-  if (session && (location.pathname === "/login" || location.pathname === "/signup")) {
+  if (
+    session &&
+    (location.pathname === "/login" || location.pathname === "/signup")
+  ) {
     return <Navigate to="/" replace />;
   }
 
@@ -48,6 +52,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/bets" element={<BetsPage />} />
         <Route path="/bets/opret" element={<CreateBetPage />} />
